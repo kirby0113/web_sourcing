@@ -14,7 +14,10 @@ class CreateMessagesTable extends Migration
     public function up()
     {
         Schema::create('messages', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('Message_id');
+            $table->integer('do_user_id');
+            $table->integer('from_user_id');
+            $table->longText('Message');
             $table->timestamps();
         });
     }
