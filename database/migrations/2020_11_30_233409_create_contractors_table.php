@@ -14,7 +14,15 @@ class CreateContractorsTable extends Migration
     public function up()
     {
         Schema::create('contractors', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('Contractor_id');
+            $table->string('Name',20);
+            $table->string('Nickname',20);
+            $table->date('Birthday');
+            $table->string('email',255);
+            $table->longText('Appealpoint');
+            $table->string('password');
+            $table->longText('photo_url')->nullable($value=true);
+            $table->tinyInteger('category_id');
             $table->timestamps();
         });
     }
