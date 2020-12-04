@@ -12,18 +12,29 @@
         <!-- Styles -->
         <!-- <link rel = "stylesheet" type="text/css" href="{{asset('css/toppage.css')}}"> -->
         <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
             div#header {
-                height: 80px;
+                
                 background-color: #8888FF;
+                text-align: left;
+                display: inline-block;
+                margin: 3px;
             }
-            h1.title{
+            div.title{
                 text-align: center;
+                font-family: 'Montserrat', sans-serif;
+                font-size: 350%;
+                padding: 20px;
             }
         </style>
     </head>
     <body>
        <div id="pagebody">
-            <div id="header"><h1 class="title">WebSourcing(仮)</h1></div>
+            
+            <div id="header"><div class="title">WebSourcing</div></div>
 
        </div>
     </body>
