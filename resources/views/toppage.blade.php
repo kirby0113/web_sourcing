@@ -27,19 +27,20 @@
                 
                 background-color: #C2EEFF;
                 
-                margin: 3px;
+                margin: 19px;
             }
             div.title{
                 text-align: center;
                 font-family: 'Montserrat', sans-serif;
                 font-weight: normal;
-                font-size: 350%;
+                font-size: 3vmax;
                 padding: 20px;
                 letter-spacing: -3px;
             }
             div#search-bar{
-                float:left;
-                
+               float: right;
+               margin: 10px;
+               margin-right: 100px;
             }
             div.button{
                 display:flex;
@@ -62,13 +63,17 @@
             }
             input.search{
                 font-size:180%;
-            }      
+            }   
+            div.category-work{
+                clear:right;
+                margin : 10px;
+            }   
         </style>
     </head>
     <body>
        <div class="pagebody container-fluid">
             
-            <div id="header" class="row">
+            <div id="header" class="row justify-content-start align-top">
                 <div class="title-frame col-sm-3">
                     <div class="title">WebSourcing</div>
                 </div>
@@ -80,11 +85,19 @@
                 </div>
             </div>
 
-            <div id="search-bar">
+            <div id="search-bar" class="row justify-content-center align-middle">
                 <input type="text" name="search-word" class="bar">
                 <input type="submit" name="submit" value="検索" class="search">
             </div>
-       
+            <div class="category-work row justify-content-end align-bottom">
+                <div class="categories col-sm-6">
+                    <div class="category">カテゴリ置き場（仮）</div>
+                </div>
+
+                <div class="works col-sm-6">
+                    <div class="work">依頼置き場（仮）</div>
+                </div>
+            </div>
        
        </div>
     </body>
