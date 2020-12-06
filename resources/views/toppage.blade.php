@@ -66,8 +66,42 @@
             }   
             div.category-work{
                 clear:right;
-                margin : 10px;
-            }   
+                margin: 10px;
+                padding: 30px 0px;
+            }  
+            
+            div.categories{
+                position: relative;
+                margin: 10px;
+                padding: 10px;
+                border: solid 3px #A4C6FF;
+                border-radius: 8px;
+            }
+            div.category-title{
+                position: absolute;
+                background-color: #FFFFFF;
+                padding:0px 6px;
+                top: -15px;
+                left: 30px; 
+                font-size: 120%;
+                font-weight:bold;
+            }
+            div.works{
+                position: relative;
+                margin: 10px;
+                padding:10px;
+                border: solid 3px #A4C6FF;
+                border-radius:8px;
+            }
+            div.work-title{
+                position:absolute;
+                background-color: #FFFFFF;
+                padding:0px 6px;
+                top:-15px;
+                left:30px;
+                font-size: 120%;
+                font-weight:bold;
+            }
         </style>
     </head>
     <body>
@@ -89,13 +123,13 @@
                 <input type="text" name="search-word" class="bar">
                 <input type="submit" name="submit" value="検索" class="search">
             </div>
-            <div class="category-work row justify-content-end align-bottom">
-                <div class="categories col-sm-6">
-                    <div class="category">カテゴリ置き場（仮）</div>
+            <div class="category-work row">
+                <div class="categories col-sm-5">
+                    <div class="category-title">カテゴリ置き場（仮）</div>
                 </div>
 
-                <div class="works col-sm-6">
-                    <div class="work">依頼置き場（仮）</div>
+                <div class="works col-sm-5">
+                    <div class="work-title">依頼置き場（仮）</div>
                 </div>
             </div>
        
