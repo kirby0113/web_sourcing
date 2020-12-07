@@ -21,6 +21,17 @@
             margin: 0px;
             padding: 0px;
         }
+        body{
+            background:
+            radial-gradient(black 3px, transparent 4px),
+            radial-gradient(black 3px, transparent 4px),
+            linear-gradient(#fff 4px, transparent 0),
+            linear-gradient(45deg, transparent 74px, transparent 75px, #a4a4a4 75px, #a4a4a4 76px, transparent 77px, transparent 109px),
+            linear-gradient(-45deg, transparent 75px, transparent 76px, #a4a4a4 76px, #a4a4a4 77px, transparent 78px, transparent 109px),
+            #fff;
+            background-size: 109px 109px, 109px 109px,100% 6px, 109px 109px, 109px 109px;
+            background-position: 54px 55px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+        }
         div#header{
         }
             div.title-frame {
@@ -76,6 +87,7 @@
                 padding: 10px;
                 border: solid 3px #A4C6FF;
                 border-radius: 8px;
+                background: #FFFFFF;
             }
             div.category-title{
                 position: absolute;
@@ -92,6 +104,7 @@
                 padding:10px;
                 border: solid 3px #A4C6FF;
                 border-radius:8px;
+                background: #FFFFFF;
             }
             div.work-title{
                 position:absolute;
@@ -101,6 +114,16 @@
                 left:30px;
                 font-size: 120%;
                 font-weight:bold;
+            }
+
+            div.category{
+                padding: 5px;
+                font-size: 200%;
+                
+            }
+            div.work{
+                padding: 5px;
+                font-size: 200%;
             }
         </style>
     </head>
@@ -124,12 +147,26 @@
                 <input type="submit" name="submit" value="検索" class="search">
             </div>
             <div class="category-work row">
-                <div class="categories col-sm-5">
+                <div class="categories col-sm-3">
                     <div class="category-title">カテゴリ置き場（仮）</div>
+                    <?php 
+                    for($i = 0;$i < 10;$i++){
+                    ?>
+                    <div class="category">・test<?php print($i); ?></div>
+                    <?php
+                    }
+                    ?>
                 </div>
 
-                <div class="works col-sm-5">
+                <div class="works col-sm-7">
                     <div class="work-title">依頼置き場（仮）</div>
+                    <?php 
+                    for($i = 0;$i < 10;$i++){
+                    ?>
+                    <div class="work">・test<?php print($i); ?></div>
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
        
