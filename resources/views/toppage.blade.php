@@ -136,7 +136,7 @@
                 </div>
                 <div class="col-sm-2"></div>
                 <div class="button col-sm-5 align-self-center">
-                    <input type="button" name="mypage" class="mypage-button" value="マイページ">
+                    <a href="/mypage">マイページ</a>
                     <a href="{{ route('login') }}">ログイン</a>
                     <input type="button" name="DM" class="DM-button" value="ＤＭ">
                 </div>
