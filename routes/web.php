@@ -20,3 +20,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/mypage','mypageController@index');
+Route::get('/work_detail','work_detailController@index');
