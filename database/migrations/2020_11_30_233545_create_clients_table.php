@@ -21,6 +21,7 @@ class CreateClientsTable extends Migration
             $table->string('email',255);
             $table->string('password');
             $table->longText('photo_url')->nullable($vaue=true);
+            $table->rememberToken();
             $table->timestamps();
         });
     }

@@ -23,6 +23,7 @@ class CreateContractorsTable extends Migration
             $table->string('password');
             $table->longText('photo_url')->nullable($value=true);
             $table->tinyInteger('category_id');
+            $table->rememberToken();
             $table->timestamps();
         });
     }
