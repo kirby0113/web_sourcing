@@ -26,3 +26,10 @@ Route::prefix('contractor')->namespace('Contractor')
         ->name('contractor.')->group(function(){
     Auth::routes();
 });
+Route::prefix('client')->namespace('Client')
+        ->name('client.')->group(function(){
+    Auth::routes();
+});
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
