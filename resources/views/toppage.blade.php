@@ -138,6 +138,7 @@
                 <div class="button col-sm-5 align-self-center">
                     <a href="/mypage">マイページ</a>
                     <a href="{{ route('login') }}">ログイン</a>
+                    <a href="/select">会員登録</a>
                     <input type="button" name="DM" class="DM-button" value="ＤＭ">
                 </div>
             </div>

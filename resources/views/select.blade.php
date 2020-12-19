@@ -19,7 +19,7 @@
     </head>
     <body>
         <h1>どちらで会員登録されますか？</h1>
-        <a href="{{ route('client_register') }}">依頼する側として</a>
-        <a href="{{ route('contractor_register')}}">依頼を受ける側として</a>
+        <a href="{{route('client.register')}}">依頼する側として</a>
+        <a href="{{route('contractor.register')}}">依頼を受ける側として</a>
     </body>
 </html>
