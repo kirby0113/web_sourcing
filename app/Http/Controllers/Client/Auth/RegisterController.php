@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Client;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -28,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/toppage';
+    protected $redirectTo = 'client/toppage';
 
     /**
      * Create a new controller instance.
@@ -64,7 +65,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return Client::create([
-            'name' => $data['name'],
+            'Name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
@@ -72,5 +73,9 @@ class RegisterController extends Controller
 
     public function showRegistrationForm(){
         return view('client.auth.register');
+    }
+
+    public function guard(){
+        return Auth::guard('client');
     }
 }

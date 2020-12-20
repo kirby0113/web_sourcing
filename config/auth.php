@@ -40,7 +40,14 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-
+        'contractor' => [
+            'driver' => 'session',
+            'provider' => 'contractors',
+        ],
+        'client' => [
+            'driver' => 'session',
+            'provider' => 'clients',
+        ],
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
@@ -70,6 +77,14 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
+        'contractors' => [
+            'driver' => 'eloquent',
+            'model' => App\Contractor::class,
+        ],
+        'clients' => [
+            'driver' => 'eloquent',
+            'model' => App\Client::class,
+        ],
 
         // 'users' => [
         //     'driver' => 'database',
@@ -98,6 +113,18 @@ return [
             'table' => 'password_resets',
             'expire' => 60,
         ],
+        'contactors' => [
+            'provider' => 'contactors',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'clients' => [
+            'provider' => 'clients',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ]
     ],
 
 ];
