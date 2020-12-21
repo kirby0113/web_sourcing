@@ -44,7 +44,7 @@
                             <div class="col-md-3">
                             <div class="form-row">
                                 <div class="col">
-                                <select id="" class="form-control" name="year" placeholder="年">
+                                <select id="year" class="form-control" name="year" placeholder="年">
                                     <option value="">----</option>
                                     <option>2000</option>                                    
                                 </select>
@@ -55,7 +55,7 @@
                             <div class="col-md-3">
                             <div class="form-row">
                                 <div class="col">
-                                <select id="" class="form-control" name="month" placeholder="月">
+                                <select id="month" class="form-control" name="month" placeholder="月">
                                     <option value="">--</option>
                                     <option>1</option>
 
@@ -67,7 +67,7 @@
                             <div class="col-md-3">
                             <div class="form-row">
                                 <div class="col">
-                                <select id="" class="form-control" name="day" placeholder="日">
+                                <select id="day" class="form-control" name="day" placeholder="日">
                                     <option value="">--</option>
                                     <option>1</option>
                                 </select>
@@ -91,6 +91,12 @@
                             </div>
                         </div>
 
+                        <div class="form-group row" >
+                            <div class="col-sm-1"></div>
+                            <label for="photo_url" class="col-md-3">プロフィール画像</label>
+                            <input id="photo_url" name="photo_url" type="file" class="form-control-file col-md-2">
+                        </div>
+                        
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('パスワード') }}</label>
 

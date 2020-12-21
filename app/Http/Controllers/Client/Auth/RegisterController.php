@@ -66,6 +66,9 @@ class RegisterController extends Controller
     {
         return Client::create([
             'Name' => $data['name'],
+            'NickName' => $data['NickName'],
+            'Birthday' => strftime("%F",strtotime($data['year']."-".$data['month']."-".$data['day'])),
+            'photo_url' => $data['photo_url'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
