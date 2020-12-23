@@ -15,8 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/toppage','toppageController@index');
-Auth::routes();
+//Route::get('/toppage','toppageController@index');
+//Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/mypage','mypageController@index');
@@ -25,13 +25,14 @@ Route::get('/select','selectController@index');
 
 Route::prefix('contractor')->namespace('Contractor')
         ->name('contractor.')->group(function(){
-    Auth::routes();
     Route::get('/toppage','ToppageController@index')->name('toppage');
 });
 
 Route::prefix('client')->namespace('Client')
         ->name('client.')->group(function(){
+    Route::get('/toppage','ToppageController@index')->name('toppage');
     Auth::routes();
+    Route::get('/home', 'HomeController@index')->name('client_home');
 });
 Auth::routes();
 

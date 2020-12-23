@@ -29,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = 'client/toppage';
+    protected $redirectTo = 'client/home';
 
     /**
      * Create a new controller instance.
@@ -38,7 +38,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('guest:client');
     }
 
     /**
@@ -51,7 +51,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:clients'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -78,7 +78,7 @@ class RegisterController extends Controller
         return view('client.auth.register');
     }
 
-    public function guard(){
+    protected function guard(){
         return Auth::guard('client');
     }
 }

@@ -23,4 +23,6 @@ protected $casts = [
     'email_verified_at' => 'datetime',
 ];
 
+protected $primaryKey = 'Client_id';
+
 }
