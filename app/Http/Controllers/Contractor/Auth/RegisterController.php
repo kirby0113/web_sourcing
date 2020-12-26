@@ -74,4 +74,8 @@ class RegisterController extends Controller
     protected function guard(){
         return Auth::guard('contractor');
     }
+
+    public function showRegistrationForm(){
+        return view('contractor.auth.register');
+    }
 }

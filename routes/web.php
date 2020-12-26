@@ -26,6 +26,7 @@ Route::get('/select','selectController@index');
 Route::prefix('contractor')->namespace('Contractor')
         ->name('contractor.')->group(function(){
     Route::get('/toppage','ToppageController@index')->name('toppage');
+    Auth::routes();
 });
 
 Route::prefix('client')->namespace('Client')
