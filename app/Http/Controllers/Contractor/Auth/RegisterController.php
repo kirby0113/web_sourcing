@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Contractor\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Client;
+use App\Contractor;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
@@ -38,7 +38,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('guest:contractor');
     }
 
     /**
@@ -51,7 +51,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:contractors'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -65,9 +65,15 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return Contractor::create([
-            'name' => $data['name'],
+            'Name' => $data['name'],
+            'Nickname' => $data['Nickname'],
+            'Birthday' => strftime("%F",strtotime($data['year']."-".$data['month']."-".$data['day'])),
+            'photo_url' => $data['photo_url'],
+            'category_id' => $data['category'],
+            'Appealpoint' => $data['appeal'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+
         ]);
     }
 

@@ -5,10 +5,9 @@
 <?php
 
 $link = new PDO('mysql:dbname=web_sourcing;host=localhost;port=8889;','web_sourcing_user','root');
-$get = $link->prepare('SELECT Category_name FROM categories');
+$get = $link->prepare('SELECT * FROM categories');
 $get->execute();
 $categories = $get->fetchAll(PDO::FETCH_ASSOC);
-var_dump($categories);
 unset($link);
 ?>
 <div class="container">
@@ -138,7 +137,7 @@ unset($link);
                                     <?php
                                     foreach($categories as $category){
                                         ?>
-                                    <option><?php echo $category["Category_name"] ?></option>
+                                    <option value="{{ $category['Category_id']}}">{{$category["Category_name"]}}</option>
                                     <?php
                                     }
                                     ?>

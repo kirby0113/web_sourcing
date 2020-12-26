@@ -12,7 +12,7 @@ class Contractor extends Authenticatable
     //
     use Notifiable;
     protected $fillable = [
-        'Name','email','password',
+        'Name','Nickname','Birthday','email','photo_url','category_id','Appealpoint','password',
     ];
 
 protected $hidden = [
@@ -22,4 +22,6 @@ protected $hidden = [
 protected $casts = [
     'email_verified_at' => 'datetime',
 ];
+
+protected $primaryKey = 'Contractor_id';
 }

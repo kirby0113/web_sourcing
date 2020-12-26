@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Contractor\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -25,7 +26,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/toppage';
+    protected $redirectTo = 'contractor/toppage';
 
     /**
      * Create a new controller instance.
@@ -34,6 +35,14 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        $this->middleware('guest:contractor')->except('logout');
+    }
+
+    public function showLoginForm(){
+        return view('contractor.auth.login');
+    }
+
+    public function guard(){
+        return Auth::guard('contractor');
     }
 }
