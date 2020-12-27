@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Contractor;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Category;
+use App\Work;
+
 class ToppageController extends Controller
 {
     //
@@ -13,6 +16,8 @@ class ToppageController extends Controller
     }
 
     public function index(){
-        return view('contractor.toppage');
+        $works = Work::All();
+        $categories = Category::All();
+        return view('contractor.toppage',compact('works','categories'));
     }
 }

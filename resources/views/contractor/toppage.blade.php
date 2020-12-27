@@ -150,24 +150,16 @@
             <div class="category-work row">
                 <div class="categories col-sm-3">
                     <div class="category-title">カテゴリ置き場（仮）</div>
-                    <?php 
-                    for($i = 0;$i < 10;$i++){
-                    ?>
-                    <div class="category">・test<?php print($i); ?></div>
-                    <?php
-                    }
-                    ?>
+                    @foreach($categories as $category)
+                    <div class="category">・{{$category->Category_name}}</div>
+                    @endforeach
                 </div>
 
                 <div class="works col-sm-7">
                     <div class="work-title">依頼置き場（仮）</div>
-                    <?php 
-                    for($i = 0;$i < 10;$i++){
-                    ?>
-                    <div class="work">・test<?php print($i); ?></div>
-                    <?php
-                    }
-                    ?>
+                    @foreach($works as $work)
+                    <div class="work">・{{$work->Title}}</div>
+                    @endforeach
                 </div>
             </div>
        
