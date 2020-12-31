@@ -55,7 +55,11 @@
     </head>
     <body>
     <div class="row top">
+<<<<<<< HEAD
         <a class="toppage col-sm-4" href="toppage">トップページへ</a>
+=======
+        <a class="toppage col-sm-4" href="contractor/toppage">トップページへ</a>
+>>>>>>> develop
         <div class="col-sm-4"></div>
         <a class="mypage col-sm-4" href="contractor/mypage">マイページ</a>
     </div>
