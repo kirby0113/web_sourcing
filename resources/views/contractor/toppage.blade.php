@@ -48,7 +48,7 @@
                 padding: 20px;
                 letter-spacing: -3px;
             }
-            div#search-bar{
+            form#search-bar{
                float: right;
                margin: 10px;
                margin-right: 100px;
@@ -116,7 +116,7 @@
                 font-weight:bold;
             }
 
-            div.category{
+            a.category{
                 padding: 5px;
                 font-size: 200%;
                 
@@ -136,22 +136,21 @@
                 </div>
                 <div class="col-sm-2"></div>
                 <div class="button col-sm-5 align-self-center">
-                    <a href="/mypage">マイページ</a>
-                    <a href="{{ route('login') }}">ログイン</a>
-                    <a href="/select">会員登録</a>
+                    <a href="/contractor/mypage">マイページ</a>
+                    <a href="{{ route('logout') }}">ログアウト</a>
                     <input type="button" name="DM" class="DM-button" value="ＤＭ">
                 </div>
             </div>
 
-            <div id="search-bar" class="row justify-content-center align-middle">
+            <form id="search-bar" class="row justify-content-center align-middle">
                 <input type="text" name="search-word" class="bar">
                 <input type="submit" name="submit" value="検索" class="search">
-            </div>
+            </form>
             <div class="category-work row">
                 <div class="categories col-sm-3">
                     <div class="category-title">カテゴリ置き場（仮）</div>
                     @foreach($categories as $category)
-                    <div class="category">・{{$category->Category_name}}</div>
+                    <a class="category" href="/contractor/category_search_result?id={{$category->Category_id}}">・{{$category->Category_name}}</a><br>
                     @endforeach
                 </div>
 
