@@ -121,7 +121,7 @@
         </style>
     </head>
     <body>
-        <a class="toppage" href="/toppage">←トップページ</a>
+        <a class="toppage" href="/contractor/toppage">←トップページ</a>
         <div class="profile">
             <div class="row">
                 <div class="photo_frame col-sm-5">

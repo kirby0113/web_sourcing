@@ -26,8 +26,8 @@ Route::get('/select','selectController@index');
 Route::prefix('contractor')->namespace('Contractor')
         ->name('contractor.')->group(function(){
     Route::get('/toppage','ToppageController@index')->name('toppage');
-    Route::get('/category_search_result','Search_result@category_search')->name('category_search');
-    Route::get('/word_search_result','Search_result@work_search')->name('work_search');
+    Route::get('/category_search_result','Search_resultController@category_search')->name('category_search');
+    Route::get('/word_search_result','Search_resultController@work_search')->name('work_search');
     Route::get('/mypage','MypageController@index')->name('mypage');
     Auth::routes();
 });
