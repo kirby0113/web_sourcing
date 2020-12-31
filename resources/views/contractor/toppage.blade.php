@@ -137,12 +137,13 @@
                 <div class="col-sm-2"></div>
                 <div class="button col-sm-5 align-self-center">
                     <a href="/contractor/mypage">マイページ</a>
-                    <a href="{{ route('logout') }}">ログアウト</a>
+                    <a href="/contractor/logout">ログアウト</a>
+
                     <input type="button" name="DM" class="DM-button" value="ＤＭ">
                 </div>
             </div>
 
-            <form id="search-bar" class="row justify-content-center align-middle">
+            <form id="search-bar"　method="POST" class="row justify-content-center align-middle">
                 <input type="text" name="search-word" class="bar">
                 <input type="submit" name="submit" value="検索" class="search">
             </form>

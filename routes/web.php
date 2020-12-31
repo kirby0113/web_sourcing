@@ -30,6 +30,7 @@ Route::prefix('contractor')->namespace('Contractor')
     Route::get('/word_search_result','Search_resultController@work_search')->name('work_search');
     Route::get('/mypage','MypageController@index')->name('mypage');
     Auth::routes();
+    Route::get('/logout',   'Auth\logoutController@logout')->name('contractor.logout');
 });
 
 Route::prefix('client')->namespace('Client')
