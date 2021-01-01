@@ -139,13 +139,18 @@
                     <a href="/contractor/mypage">マイページ</a>
                     <a href="/contractor/logout">ログアウト</a>
 
-                    <input type="button" name="DM" class="DM-button" value="ＤＭ">
+                    <a href="#">DM</a>
                 </div>
             </div>
 
-            <form id="search-bar"　method="POST" class="row justify-content-center align-middle">
-                <input type="text" name="search-word" class="bar">
-                <input type="submit" name="submit" value="検索" class="search">
+            <form id="search-bar" action="/contractor/word_search_result" class="row justify-content-center align-middle",method="get">
+                @csrf
+                <div class="form-group">
+                <input type="text" name="word" class="bar">
+                </div>
+                <div class="form-group">
+                <input type="submit"value="検索" class="search">
+                </div>
             </form>
             <div class="category-work row">
                 <div class="categories col-sm-3">

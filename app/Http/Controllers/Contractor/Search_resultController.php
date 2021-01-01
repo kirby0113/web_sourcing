@@ -18,8 +18,10 @@ class Search_resultController extends Controller
         return view('contractor/search_result',compact('results','category'));
     }
     
-    public function word_search(){
-
-        return view('contractor/search_result');
+    public function word_search(Request $request){
+        $word = $request->word;
+        $words = explode(" ",$word);
+        $results = Work::word_pickup($words);
+        return view('contractor/search_result',compact('results','word'));
     }
 }

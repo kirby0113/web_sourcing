@@ -41,7 +41,8 @@
         }
         div.result_frame{
             position: relative;
-                margin: 10px;
+                margin-top: 80px;
+                margin-bottom:40px;
                 padding:10px;
                 border: solid 3px #A4C6FF;
                 border-radius:8px;
@@ -51,15 +52,14 @@
             font-weight:bold;
             font-size:200%;
         }
+        div.paginate{
+            font-size:200%;
+        }
         </style>
     </head>
     <body>
     <div class="row top">
-<<<<<<< HEAD
-        <a class="toppage col-sm-4" href="toppage">トップページへ</a>
-=======
-        <a class="toppage col-sm-4" href="contractor/toppage">トップページへ</a>
->>>>>>> develop
+        <a class="toppage col-sm-4" href="/contractor/toppage">トップページへ</a>
         <div class="col-sm-4"></div>
         <a class="mypage col-sm-4" href="contractor/mypage">マイページ</a>
     </div>
@@ -81,7 +81,7 @@
     </form>
     </div>
 
-    <div class="row">
+    <div class="row container">
         <div class="col-sm-3"></div>
         <div class="col-sm-5">
             @foreach($results as $result)
@@ -90,6 +90,7 @@
             </div>
             @endforeach
         </div>
+        <div class="paginate">{{$results->links()}}</div>
     </div>
     </body>
 </html>
