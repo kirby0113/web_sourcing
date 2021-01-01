@@ -61,7 +61,7 @@
     <div class="row top">
         <a class="toppage col-sm-4" href="/contractor/toppage">トップページへ</a>
         <div class="col-sm-4"></div>
-        <a class="mypage col-sm-4" href="contractor/mypage">マイページ</a>
+        <a class="mypage col-sm-4" href="/contractor/mypage">マイページ</a>
     </div>
     
     <div class="search row">
@@ -75,8 +75,8 @@
             @endisset
     </div>
     <div class="col-sm-2"></div>
-    <form id="search-bar" class="col-sm-4">
-            <input type="text" name="search-word" class="bar">
+    <form id="search-bar" class="col-sm-4" action="/contractor/word_search_result" ,method="get">
+            <input type="text" name="word" value="{{$word ?? ''}}" class="bar">
             <input type="submit" name="submit" value="検索" class="search">
     </form>
     </div>
@@ -90,7 +90,14 @@
             </div>
             @endforeach
         </div>
-        <div class="paginate">{{$results->links()}}</div>
+        
+        @isset($word)
+        <div class="paginate">{{$results->appends(['word'=>$word])->render()}}</div>
+        @endisset
+
+        @isset($category)
+        <div class="paginate">{{$results->appends(['id'=>$id])->render()}}</div>
+        @endisset
     </div>
     </body>
 </html>

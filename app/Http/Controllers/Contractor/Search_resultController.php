@@ -15,7 +15,8 @@ class Search_resultController extends Controller
     public function category_search(Request $request){
         $results = Work::category_pickup($request->id);
         $category = Category::find($request->id);
-        return view('contractor/search_result',compact('results','category'));
+        $id = $request->id;
+        return view('contractor/search_result',compact('results','category','id'));
     }
     
     public function word_search(Request $request){
