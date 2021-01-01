@@ -27,7 +27,7 @@ Route::prefix('contractor')->namespace('Contractor')
         ->name('contractor.')->group(function(){
     Route::get('/toppage','ToppageController@index')->name('toppage');
     Route::get('/category_search_result','Search_resultController@category_search')->name('category_search');
-    Route::get('/word_search_result','Search_resultController@work_search')->name('work_search');
+    Route::get('/word_search_result','Search_resultController@word_search')->name('word_search');
     Route::get('/mypage','MypageController@index')->name('mypage');
     Auth::routes();
     Route::get('/logout',   'Auth\logoutController@logout')->name('contractor.logout');
