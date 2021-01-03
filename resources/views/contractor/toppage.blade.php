@@ -163,7 +163,7 @@
                 <div class="works col-sm-7">
                     <div class="work-title">依頼置き場（仮）</div>
                     @foreach($works as $work)
-                    <div class="work">・{{$work->Title}}</div>
+                    <div class="work">・<a href="/contractor/work_detail?id={{$work->Work_id}}">{{$work->Title}}</a></div>
                     @endforeach
                 </div>
             </div>
