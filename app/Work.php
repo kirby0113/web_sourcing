@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Contractor;
 
 class Work extends Model
 {
@@ -21,6 +22,22 @@ class Work extends Model
             $query->orwhere('Contents','like','%'.$word.'%');
         }
         return $query->paginate(10);
+    }
+
+    public function contractor(){
+        return $this->belongsTo(Contractor::class,'Contractor_id');
+    }
+
+    public function getContentsAttribute($value){
+        return str_replace(array("\r\n", "\r", "\n"), "\n", $value);
+    }
+
+    public static function ContentsExplode($value){
+        return explode("\n",$value);
+    }
+
+    public function category(){
+        return $this->belongsTo(Category::class,'Category_id');
     }
     
 }
