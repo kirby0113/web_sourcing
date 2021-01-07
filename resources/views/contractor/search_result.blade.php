@@ -86,7 +86,7 @@
         <div class="col-sm-5">
             @foreach($results as $result)
             <div class="result_frame">
-                <div class="title">{{$result->Title}}</div>
+                <a href="/contractor/work_detail?id={{$result->Work_id}}"><div class="title">{{$result->Title}}</div></a>
             </div>
             @endforeach
         </div>
