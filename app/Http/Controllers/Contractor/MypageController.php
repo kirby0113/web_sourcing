@@ -30,8 +30,7 @@ class MypageController extends Controller
 
     public function index(Request $request){
         $contractor_data = $this->user;
-        $contractor_data->Appealpoint = str_replace(array("\r\n", "\r", "\n"), "\n", $contractor_data->Appealpoint);
-        $Appeals = explode("\n",$contractor_data->Appealpoint);
+        $Appeals = Contractor::AppealpointExplode($contractor_data->Appealpoint);
         return view('contractor.mypage',compact('contractor_data','Appeals'));
     }
 }
