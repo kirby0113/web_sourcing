@@ -36,6 +36,10 @@ class Work extends Model
         return explode("\n",$value);
     }
 
+    public static function getWork_Client($id){
+        return Work::where('Client_id',$id);
+    }
+
     public function category(){
         return $this->belongsTo(Category::class,'Category_id');
     }
