@@ -62,8 +62,9 @@
             input.mypage-button{
                 font-size:200%;
             }
-            input.login-button{
+            button{
                 font-size:200%;
+                padding: 10px;
             }
             input.DM-button{
                 font-size:200%;
@@ -71,9 +72,10 @@
             input.bar{
                 padding: 2px;
                 font-size: 200%;
+                margin-right: 20px;
             }
             input.search{
-                font-size:180%;
+                font-size:220%;
             }   
             div.category-work{
                 clear:right;
@@ -123,7 +125,10 @@
             }
             div.work{
                 padding: 5px;
+                margin-top: 20px;
+                
                 font-size: 200%;
+                border-bottom:dotted 2px #000000;
             }
         </style>
     </head>
@@ -136,10 +141,10 @@
                 </div>
                 <div class="col-sm-2"></div>
                 <div class="button col-sm-5 align-self-center">
-                    <a href="/contractor/mypage">マイページ</a>
-                    <a href="/contractor/logout">ログアウト</a>
+                    <a href="/contractor/mypage"><button>マイページ</button></a>
+                    <a href="/contractor/logout"><button>ログアウト</button></a>
 
-                    <a href="#">DM</a>
+                    <a href="#"><button>DM</button></a>
                 </div>
             </div>
 
