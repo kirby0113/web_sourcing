@@ -31,6 +31,7 @@ Route::prefix('contractor')->namespace('Contractor')
     Route::get('/word_search_result','Search_resultController@word_search')->name('word_search');
     Route::get('/mypage','MypageController@index')->name('mypage');
     Route::get('/work_detail','WorkDetailController@index')->name('work_detail');
+    Route::view('/request','contractor.request')->name('request');
             });
     Auth::routes();
     Route::get('/logout',   'Auth\logoutController@logout')->name('contractor.logout');
