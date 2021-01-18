@@ -34,7 +34,7 @@
             margin-top:30px;
             
         }
-        div.submit{
+        input.submit{
             margin-top:30px;
         }
         div.explain{
@@ -47,21 +47,22 @@
             display: inline-block;
         }
         textarea.request-content{
-            font-size: 300%;
+            font-size:150%;
         }
 
 </style>
 <body>
 <a class="toppage" href="javascript:history.back()">戻る</a>
-<form>
+<form action="/contractor/request_create?id={{$id}}" method="post">
+@csrf
         <div class="explain">こちらのフォームに提案等をお書きください。依頼者に送信します。</div>
         <div class="row request-content">
             <div class="col-sm-3"></div>
-            <textarea name="request-content" cols="100" rows="20"></textarea>
+            <textarea class="request-content" cols="75" rows="10" name="content"></textarea>
         </div>
         <div class="row submit">
             <div class="col-sm-5"></div>
-            <a class="submit-button"><button class="btn btn-primary"><font size="7">送信</font></button></a>
+            <input type="submit" class="btn btn-primary submit"></input>
         </div>
 </form>
 </body>

@@ -78,7 +78,7 @@
             <div class="updated-at col-sm-3">最終更新日:{{$work->updated_at}}</div>
         </div>
         <div class="text-center">
-        <a href="/contractor/request" class="application"><button type="button" class="btn btn-primary">申し込みする</button></a>
+        <a href="/contractor/request?id={{$id}}" class="application"><button type="button" class="btn btn-primary">申し込みする</button></a>
     </div>
         </div>
     </body>

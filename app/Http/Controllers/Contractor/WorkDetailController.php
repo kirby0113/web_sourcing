@@ -15,6 +15,7 @@ class WorkDetailController extends Controller
         $contents = Work::ContentsExplode($work->Contents);
         $contractor = $work->contractor;
         $category = $work->category;
-        return view('contractor.work_detail',compact('work','contractor','category','contents'));
+        $id = $request->id;
+        return view('contractor.work_detail',compact('work','contractor','category','contents','id'));
     }
 }
