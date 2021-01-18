@@ -131,24 +131,16 @@
                 <div class="text_data col-sm-5">
                     <div class="name_frame">
                         <div class="text">ニックネーム</div>
-                        <div class="name">testdata</div>
+                        <div class="name">{{$my_data->NickName}}</div>
                     </div>
                     <div class="birthday_frame">
                         <div class="text">誕生日</div>
-                        <div class="birthday">testdata</div>
+                        <div class="birthday">{{$my_data->Birthday}}</div>
                     </div>
                     <div class="mail_frame">
                         <div class="text">メールアドレス</div>
-                        <div class="mail">testdata</div>
+                        <div class="mail">{{$my_data->email}}</div>
                     </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="appeal_frame col-sm-8">
-                    <div class="text">アピールポイント</div>
-                    <?php for($i = 0;$i < 10;$i++){ ?>
-                    <div class="appeal">testdata<? print($i); ?></div>
-                    <?php } ?>
                 </div>
             </div>
         </div>
