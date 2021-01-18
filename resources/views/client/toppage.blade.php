@@ -136,34 +136,21 @@
                 </div>
                 <div class="col-sm-2"></div>
                 <div class="button col-sm-5 align-self-center">
-                    <a href="/mypage">マイページ</a>
-                    <a href="{{ route('login') }}">ログイン</a>
-                    <a href="/select">会員登録</a>
+                    <a href="/client/mypage">マイページ</a>
+                    <a href="/client/logout">ログアウト</a>
                     <input type="button" name="DM" class="DM-button" value="ＤＭ">
                 </div>
             </div>
 
-            <div id="search-bar" class="row justify-content-center align-middle">
-                <input type="text" name="search-word" class="bar">
-                <input type="submit" name="submit" value="検索" class="search">
-            </div>
             <div class="category-work row">
-                <div class="categories col-sm-3">
-                    <div class="category-title">カテゴリ置き場（仮）</div>
-                    @foreach($myworks as $work)
-                    <div class="category">・{{$work->Title}}</div>
-                    @endforeach
+                <div class="col-sm-2">
                 </div>
 
                 <div class="works col-sm-7">
-                    <div class="work-title">依頼置き場（仮）</div>
-                    <?php 
-                    for($i = 0;$i < 10;$i++){
-                    ?>
-                    <div class="work">・test<?php print($i); ?></div>
-                    <?php
-                    }
-                    ?>
+                    <div class="work-title">今まで依頼したもの</div>
+                    @foreach($myworks as $work)
+                    <div class="work">{{$work->Title}}</div>
+                    @endforeach
                 </div>
             </div>
        
