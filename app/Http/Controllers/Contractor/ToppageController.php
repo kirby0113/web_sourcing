@@ -16,7 +16,7 @@ class ToppageController extends Controller
     }
 
     public function index(){
-        $works = Work::All();
+        $works = Work::limit(10)->get();
         $categories = Category::All();
         return view('contractor.toppage',compact('works','categories'));
     }

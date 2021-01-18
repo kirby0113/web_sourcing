@@ -37,7 +37,7 @@ class Work extends Model
     }
 
     public static function getWork_Client($id){
-        return Work::where('Client_id',$id);
+        return Work::where('Client_id',$id)->get();
     }
 
     public function category(){

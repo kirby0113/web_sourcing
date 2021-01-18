@@ -31,7 +31,8 @@ Route::prefix('contractor')->namespace('Contractor')
     Route::get('/word_search_result','Search_resultController@word_search')->name('word_search');
     Route::get('/mypage','MypageController@index')->name('mypage');
     Route::get('/work_detail','WorkDetailController@index')->name('work_detail');
-    Route::view('/request','contractor.request')->name('request');
+    Route::get('/request','RequestController@index')->name('request');
+    Route::post('/request_create','RequestController@store')->name('request_create');
             });
     Auth::routes();
     Route::get('/logout',   'Auth\logoutController@logout')->name('contractor.logout');
@@ -39,9 +40,13 @@ Route::prefix('contractor')->namespace('Contractor')
 
 Route::prefix('client')->namespace('Client')
         ->name('client.')->group(function(){
+            Route::middleware('auth:client')->group(function(){
     Route::get('/toppage','ToppageController@index')->name('toppage');
+    Route::get('/mypage','MypageController@index')->name('mypage');
+            
+            });
     Auth::routes();
-    Route::get('/home', 'HomeController@index')->name('client_home');
+    Route::get('/logout', 'Auth\LogoutController@logout')->name('client.logout');
 });
 Auth::routes();
 
