@@ -149,7 +149,7 @@
                 <div class="works col-sm-7">
                     <div class="work-title">今まで依頼したもの</div>
                     @foreach($myworks as $work)
-                    <div class="work">{{$work->Title}}</div>
+                    <a href="/client/request_detail?id={{$work->Work_id}}"><div class="work">{{$work->Title}}</div></a>
                     @endforeach
                 </div>
             </div>
