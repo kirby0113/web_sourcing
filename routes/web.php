@@ -43,7 +43,8 @@ Route::prefix('client')->namespace('Client')
             Route::middleware('auth:client')->group(function(){
     Route::get('/toppage','ToppageController@index')->name('toppage');
     Route::get('/mypage','MypageController@index')->name('mypage');
-            
+    Route::get('/request_detail','RequestDetailController@index')->name('request_detail');
+    Route::get('/contractor_show','MypageController@show')->name('contractor_show');
             });
     Auth::routes();
     Route::get('/logout', 'Auth\LogoutController@logout')->name('client.logout');
