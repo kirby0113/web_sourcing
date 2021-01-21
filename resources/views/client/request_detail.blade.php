@@ -90,7 +90,7 @@
                 <a href="/client/contractor_show?id={{$request->contractor->Contractor_id}}" class="contractor_name">提案者：{{$request->contractor->Nickname}}</a>
                 <span class="requested_date">提案日時：{{$request->created_at}}</span>
             </div>
-            <div class="button"><a href=""><button class="btn btn-primary"><font size="6">提案を承認する</font></button></a></div>
+            <div class="button"><a href="/client/message_room_create?work_id={{$work_id}}"><button class="btn btn-primary"><font size="6">提案を承認する</font></button></a></div>
 
         </div>
     </div>
