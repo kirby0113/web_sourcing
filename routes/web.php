@@ -45,7 +45,10 @@ Route::prefix('client')->namespace('Client')
     Route::get('/mypage','MypageController@index')->name('mypage');
     Route::get('/request_detail','RequestDetailController@index')->name('request_detail');
     Route::get('/contractor_show','MypageController@show')->name('contractor_show');
-            });
+    Route::get('/message_room_create','Message_RoomsController@store')->name('message_room_create');
+    Route::get('/message_room','Message_RoomsController@index')->name('message_room');
+    Route::post('/message_create','MessageController@store')->name('message_create');
+});
     Auth::routes();
     Route::get('/logout', 'Auth\LogoutController@logout')->name('client.logout');
 });
