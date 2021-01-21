@@ -28,6 +28,10 @@ class Work extends Model
         return $this->belongsTo(Contractor::class,'Contractor_id');
     }
 
+    public function client(){
+        return $this->belongsTo(Client::class,'Client_id');
+    }
+
     public function getContentsAttribute($value){
         return str_replace(array("\r\n", "\r", "\n"), "\n", $value);
     }

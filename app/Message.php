@@ -8,4 +8,17 @@ class Message extends Model
 {
     //
     protected $primaryKey = 'Message_id';
+    protected $table = 'messages';
+
+    public function contractor(){
+        return $this->belongsTo(Contractor::class,'contractor_id');
+    }
+
+    public function client(){
+        return $this->belongsTo(Client::class,'contractor_id');
+    }
+
+    public function Work(){
+        return $this->belongsTo(Message_Room::class,'room_id');
+    }
 }
