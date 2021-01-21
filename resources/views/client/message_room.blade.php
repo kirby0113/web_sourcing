@@ -51,19 +51,37 @@
             margin-left:30px;
         }
 
+        div.message_frame{
+            padding:20px;
+            margin-top:40px;
+            margin-bottom:40px;
+            border:solid 4px;
+            border-radius:4px;
+            background-color:#FFFFFF;
+        }
+
+        div.client{
+            border-color:#FF0000;
+        }
+
+        div.contractor{
+            border-color: #0000FF;
+        }
+
     </style>
 </head>
 <body>
         <header>
     <a href="javascript:history.back()" class="back">戻る</a>
     </header>
-    <div class="room_title"><span>{{$title}}</span></div>
+    <div class="room_title"><span>{{$room->work->Title}}</span></div>
 
-    <form class="message_form" action="/client/message_create",method="post">
+    <form class="message_form" action="/client/message_create?room_id={{$room->Room_id}}" method="post">
+    @csrf
             <span class="row message-content">
-                <div class="col-sm-3"></div>
+                <div class="col-sm-4"></div>
                 <div class="text">
-                    <textarea class="request-content" cols="75" rows="3" name="content"></textarea>
+                    <textarea class="request-content" cols="75" rows="3" name="message"></textarea>
                 </div>
                 <input type="submit" class="btn btn-primary submit"></input>
             </span>
@@ -71,14 +89,13 @@
 
     @foreach($messages as $message)
     <div class="row">
-    @if($message->from_user_id == $my_id)
         <div class="col-sm-3"></div>
+
+        @if($message->from_user_id == $my_id)
+        <div class="message_frame client col-sm-5 ">
         @else
-        <div class="col-sm-6"></div>
+        <div class="message_frame contractor col-sm-5 ">
         @endif
-
-
-        <div class="message_frame col-sm-5 ">
             
             <div class="content">
                 {!! $message->Message !!}
