@@ -21,7 +21,7 @@ Route::get('/', function () {
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/mypage','mypageController@index');
 Route::get('/work_detail','work_detailController@index');
-Route::get('/select','selectController@index');
+Route::get('/enter','EnterController@index');
 
 Route::prefix('contractor')->namespace('Contractor')
         ->name('contractor.')->group(function(){
@@ -33,9 +33,10 @@ Route::prefix('contractor')->namespace('Contractor')
     Route::get('/work_detail','WorkDetailController@index')->name('work_detail');
     Route::get('/request','RequestController@index')->name('request');
     Route::post('/request_create','RequestController@store')->name('request_create');
+    Route::get('/message_room_list','Message_Room_ListController@index')->name('message_room_list');
             });
     Auth::routes();
-    Route::get('/logout',   'Auth\logoutController@logout')->name('contractor.logout');
+    Route::get('/logout','Auth\logoutController@logout')->name('contractor.logout');
 });
 
 Route::prefix('client')->namespace('Client')
@@ -48,6 +49,7 @@ Route::prefix('client')->namespace('Client')
     Route::get('/message_room_create','Message_RoomsController@store')->name('message_room_create');
     Route::get('/message_room','Message_RoomsController@index')->name('message_room');
     Route::post('/message_create','MessageController@store')->name('message_create');
+    Route::get('/message_room_list','Message_Room_ListController@index')->name('message_room_list');
 });
     Auth::routes();
     Route::get('/logout', 'Auth\LogoutController@logout')->name('client.logout');
