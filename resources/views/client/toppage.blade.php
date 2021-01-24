@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
-        <!-- <link rel = "stylesheet" type="text/css" href="{{asset('css/toppage.css')}}"> -->
+        <link rel = "stylesheet" type="text/css" href="{{asset('css/toppage.css')}}"> 
         <style>
         *{
             margin: 0px;
@@ -65,8 +65,9 @@
             input.login-button{
                 font-size:200%;
             }
-            input.DM-button{
+            button{
                 font-size:200%;
+                padding:10px;
             }  
             input.bar{
                 padding: 2px;
@@ -122,8 +123,11 @@
                 
             }
             div.work{
-                padding: 5px;
+                padding: 10px;
+                padding-top:20px;
+                padding-bottom:20px;
                 font-size: 200%;
+                border-bottom:dotted 2px #0000FF;
             }
         </style>
     </head>
@@ -136,9 +140,9 @@
                 </div>
                 <div class="col-sm-2"></div>
                 <div class="button col-sm-5 align-self-center">
-                    <a href="/client/mypage">マイページ</a>
-                    <a href="/client/logout">ログアウト</a>
-                    <input type="button" name="DM" class="DM-button" value="ＤＭ">
+                    <a href="/client/mypage"><button>マイページ</button></a>
+                    <a href="/client/logout"><button>ログアウト</button></a>
+                    <a href="/client/message_room_list"><button class="DM">D M</button></a>
                 </div>
             </div>
 

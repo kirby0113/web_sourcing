@@ -1,3 +1,6 @@
+@extends('layouts.header')
+
+@section('head')
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -19,6 +22,12 @@
             margin:0px;
             padding:0px;
         }
+        span.headanc{
+                color:#0000cd;
+                font-size:130%;
+                font-family: 'Sawarabi Mincho', sans-serif;
+                font-weight:bolder;
+            }
 
         a.toppage{
             font-size:200%;
@@ -57,12 +66,21 @@
         }
         </style>
     </head>
+    @endsection
+    
+    @section('mypage')
+    <a class="nav-link" href="/contractor/mypage"><span class="headanc">マイページ</span></a>
+    @endsection
+
+    @section('logout')
+    <a class="nav-link" href="/contractor/logout"><span class="headanc">ログアウト</span></a>
+    @endsection
+
+    @section('DM')
+    <a class="nav-link" href="/contractor/message_room_list"><span class="headanc">D M</span></a>
+    @endsection
+    @section('main')
     <body>
-    <div class="row top">
-        <a class="toppage col-sm-4" href="/contractor/toppage">トップページへ</a>
-        <div class="col-sm-4"></div>
-        <a class="mypage col-sm-4" href="/contractor/mypage">マイページ</a>
-    </div>
     
     <div class="search row">
     <div class="search-detail col-sm-6">
@@ -100,4 +118,5 @@
         @endisset
     </div>
     </body>
+    @endsection
 </html>

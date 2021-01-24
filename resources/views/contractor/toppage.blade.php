@@ -1,4 +1,8 @@
+@extends('layouts.header')
+
+@section('head')
 <!DOCTYPE html>
+
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -15,31 +19,9 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
-        <!-- <link rel = "stylesheet" type="text/css" href="{{asset('css/toppage.css')}}"> -->
+        <link rel = "stylesheet" type="text/css" href="{{asset('css/background.css')}}">
+
         <style>
-        *{
-            margin: 0px;
-            padding: 0px;
-        }
-        body{
-            background:
-            radial-gradient(black 3px, transparent 4px),
-            radial-gradient(black 3px, transparent 4px),
-            linear-gradient(#fff 4px, transparent 0),
-            linear-gradient(45deg, transparent 74px, transparent 75px, #a4a4a4 75px, #a4a4a4 76px, transparent 77px, transparent 109px),
-            linear-gradient(-45deg, transparent 75px, transparent 76px, #a4a4a4 76px, #a4a4a4 77px, transparent 78px, transparent 109px),
-            #fff;
-            background-size: 109px 109px, 109px 109px,100% 6px, 109px 109px, 109px 109px;
-            background-position: 54px 55px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
-        }
-        div#header{
-        }
-            div.title-frame {
-                
-                background-color: #C2EEFF;
-                
-                margin: 19px;
-            }
             div.title{
                 text-align: center;
                 font-family: 'Montserrat', sans-serif;
@@ -48,6 +30,7 @@
                 padding: 20px;
                 letter-spacing: -3px;
             }
+
             form#search-bar{
                float: right;
                margin: 10px;
@@ -99,6 +82,8 @@
                 left: 30px; 
                 font-size: 120%;
                 font-weight:bold;
+                border:solid 3px #A4C6FF;
+                border-radius:8px;
             }
             div.works{
                 position: relative;
@@ -116,25 +101,53 @@
                 left:30px;
                 font-size: 120%;
                 font-weight:bold;
+                border:solid 3px #A4C6FF;
+                border-radius:8px;
             }
 
-            a.category{
+            div.category{
                 padding: 5px;
+                margin-top:20px;
+                margin-bottom:20px;
                 font-size: 200%;
                 
             }
             div.work{
                 padding: 5px;
                 margin-top: 20px;
+                margin-bottom:20px;
                 
                 font-size: 200%;
                 border-bottom:dotted 2px #000000;
             }
+
+            span.headanc{
+                color:#0000cd;
+                font-size:130%;
+                font-family: 'Sawarabi Mincho', sans-serif;
+                font-weight:bolder;
+            }
+
         </style>
     </head>
+    @endsection
+
+    @section('mypage')
+    <a class="nav-link" href="/contractor/mypage"><span class="headanc">マイページ</span></a>
+    @endsection
+
+    @section('logout')
+    <a class="nav-link" href="/contractor/logout"><span class="headanc">ログアウト</span></a>
+    @endsection
+
+    @section('DM')
+    <a class="nav-link" href="/contractor/message_room_list"><span class="headanc">D M</span></a>
+    @endsection
+
+    @section('main')
     <body>
        <div class="pagebody container-fluid">
-            
+            <!--
             <div id="header" class="row justify-content-start align-top">
                 <div class="title-frame col-sm-3">
                     <div class="title">WebSourcing</div>
@@ -146,7 +159,7 @@
 
                     <a href="#"><button>DM</button></a>
                 </div>
-            </div>
+            </div> -->
 
             <form id="search-bar" action="/contractor/word_search_result" class="row justify-content-center align-middle",method="get">
                 @csrf
@@ -161,7 +174,7 @@
                 <div class="categories col-sm-3">
                     <div class="category-title">カテゴリ置き場（仮）</div>
                     @foreach($categories as $category)
-                    <a class="category" href="/contractor/category_search_result?id={{$category->Category_id}}">・{{$category->Category_name}}</a><br>
+                    <div class="category"><a href="/contractor/category_search_result?id={{$category->Category_id}}">・{{$category->Category_name}}</a></div>
                     @endforeach
                 </div>
 
@@ -175,4 +188,5 @@
        
        </div>
     </body>
+    @endsection
 </html>

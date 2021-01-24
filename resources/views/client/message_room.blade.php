@@ -103,7 +103,7 @@
 
             <div class="message_fotter">
                 <a href="/client/contractor_show?id={{$message->contractor->Contractor_id}}" class="contractor_name">送信者：{{$message->contractor->Nickname}}</a>
-                <span class="requested_date">提案日時：{{$message->created_at}}</span>
+                <span class="requested_date">送信日時：{{$message->created_at}}</span>
             </div>
 
         </div>
