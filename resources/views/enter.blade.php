@@ -61,10 +61,11 @@
             font-weight:bold;
             text-shadow:1px 1px 0px #000000;
             border-radius:8px;
+            background: linear-gradient(-135deg,#e0ffff,#afeeee);
         }
 
-        button.hover{
-            opacity: 0.8;
+        button:hover{
+            opacity: 0.6;
         }
         </style>
     </head>
