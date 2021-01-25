@@ -9,7 +9,7 @@ use App\Message;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class Message_RoomsController extends Controller
+class Message_RoomController extends Controller
 {
     //
     public function store(Request $request){
