@@ -20,6 +20,7 @@ class MessageController extends Controller
         $insert->contractor_id = $room->work->Contractor_id;
         $insert->client_id = $room->work->Client_id;
         $insert->Message = $request->message;
+        $insert->made = 'client';
         $insert->save();
         return redirect('/client/message_room?room_id='.$request->room_id);
     }
