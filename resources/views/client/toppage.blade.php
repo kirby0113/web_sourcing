@@ -1,3 +1,6 @@
+@extends('layouts.header')
+
+@section('head')
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -21,19 +24,7 @@
             margin: 0px;
             padding: 0px;
         }
-        body{
-            background:
-            radial-gradient(black 3px, transparent 4px),
-            radial-gradient(black 3px, transparent 4px),
-            linear-gradient(#fff 4px, transparent 0),
-            linear-gradient(45deg, transparent 74px, transparent 75px, #a4a4a4 75px, #a4a4a4 76px, transparent 77px, transparent 109px),
-            linear-gradient(-45deg, transparent 75px, transparent 76px, #a4a4a4 76px, #a4a4a4 77px, transparent 78px, transparent 109px),
-            #fff;
-            background-size: 109px 109px, 109px 109px,100% 6px, 109px 109px, 109px 109px;
-            background-position: 54px 55px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
-        }
-        div#header{
-        }
+
             div.title-frame {
                 
                 background-color: #C2EEFF;
@@ -129,22 +120,28 @@
                 font-size: 200%;
                 border-bottom:dotted 2px #0000FF;
             }
+            span.headanc{
+                padding:-40px;
+            }
         </style>
     </head>
+    @endsection
+    @section('mypage')
+    <a class="nav-link" href="/client/mypage"><span class="headanc">マイページ</span></a>
+    @endsection
+
+    @section('logout')
+    <a class="nav-link" href="/client/logout"><span class="headanc">ログアウト</span></a>
+    @endsection
+
+    @section('DM')
+    <a class="nav-link" href="/client/message_room_list"><span class="headanc">D M</span></a>
+    @endsection
+
+    @section('main')
     <body>
        <div class="pagebody container-fluid">
             
-            <div id="header" class="row justify-content-start align-top">
-                <div class="title-frame col-sm-3">
-                    <div class="title">WebSourcing</div>
-                </div>
-                <div class="col-sm-2"></div>
-                <div class="button col-sm-5 align-self-center">
-                    <a href="/client/mypage"><button>マイページ</button></a>
-                    <a href="/client/logout"><button>ログアウト</button></a>
-                    <a href="/client/message_room_list"><button class="DM">D M</button></a>
-                </div>
-            </div>
 
             <div class="category-work row">
                 <div class="col-sm-2">
@@ -160,4 +157,5 @@
        
        </div>
     </body>
+    @endsection
 </html>

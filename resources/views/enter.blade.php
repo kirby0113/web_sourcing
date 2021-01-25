@@ -23,15 +23,73 @@
             margin:0px;
             padding:0px;
         }
+        div.contractor_frame{
+            border:solid 4px #000000;
+            border-radius: 8px;
+            background-color: #ffffff;
+            padding: 20px;
+            margin-top:90px;
+        }
+
+        div.client_frame{
+            border:solid 4px #000000;
+            border-radius: 8px;
+            background-color: #ffffff;
+            padding: 20px;
+            margin-top:90px;
+            position:relative;
+        }
+
+        div.head{
+            padding:15px;
+            position:absolute;
+            top:-72px;
+            left:20px;
+            border:solid 4px #000000;
+            border-radius: 8px;
+            background-color: #ffffff;
+            font-size:140%;
+            font-weight:bold;
+        }
+        button{
+            padding:20px;
+            margin:60px;
+            margin-top:40px;
+            margin-bottom:40px;
+            width:500px;
+            font-size:170%;
+            font-weight:bold;
+            text-shadow:1px 1px 0px #000000;
+            border-radius:8px;
+        }
+
+        button.hover{
+            opacity: 0.8;
+        }
         </style>
     </head>
     @endsection
     <body>
 
         @section('main')
-        <h1>どちらで会員登録されますか？</h1>
-        <a href="{{route('client.register')}}">依頼する側として</a>
-        <a href="{{route('contractor.register')}}">依頼を受ける側として</a>
+        <h1>WebSourcing(仮)へようこそ</h1>
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-4 contractor_frame">
+                <div class="head">依頼を受ける側として</div>
+                <button class="contractor_login" onclick="location.href='contractor/login'">ログイン</button></button></br>
+                <button class="contractor_register" onclick="location.href='contractor/register'">新規登録</button></button>
+
+            </div>
+            <div class="col-sm-2"></div>
+
+            <div class="col-sm-4 client_frame">
+                <div class="head">依頼をする側として</div>
+                <button class="client_login" onclick="location.href='client/login'">ログイン</button></br>
+                <button class="client_register" onclick="location.href='client/register'">新規登録</button>
+
+            </div>
+        </div>
         @endsection
     </body>
 </html>
