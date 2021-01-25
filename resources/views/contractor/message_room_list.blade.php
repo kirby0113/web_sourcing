@@ -78,7 +78,7 @@
     @foreach($rooms as $room)
         <div class="row">
             <div class="col-sm-3"></div>
-            <a href="/client/message_room?room_id={{$room->Room_id}}" class="col-sm-6">
+            <a href="/contractor/message_room?room_id={{$room->Room_id}}" class="col-sm-6">
                 <div class="room_frame">
 
                     <div class="title">
