@@ -63,6 +63,11 @@
                                 </li>
                             @endif -->
                         @else
+
+                            <li class="nav-item DM">
+                                    @yield('create_work')    
+                            </li>
+
                             <li class="nav-item mypage">
                                 @yield('mypage')
                             </li>
