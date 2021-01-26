@@ -35,6 +35,7 @@ Route::prefix('contractor')->namespace('Contractor')
     Route::post('/request_create','RequestController@store')->name('request_create');
     Route::get('/message_room_list','Message_Room_ListController@index')->name('message_room_list');
     Route::get('/message_room','Message_RoomController@index')->name('message_room');
+    Route::post('/message_create','MessageController@store')->name('message_create');
             });
     Auth::routes();
     Route::get('/logout','Auth\logoutController@logout')->name('contractor.logout');
@@ -47,10 +48,12 @@ Route::prefix('client')->namespace('Client')
     Route::get('/mypage','MypageController@index')->name('mypage');
     Route::get('/request_detail','RequestDetailController@index')->name('request_detail');
     Route::get('/contractor_show','MypageController@show')->name('contractor_show');
-    Route::get('/message_room_create','Message_RoomsController@store')->name('message_room_create');
+    Route::get('/message_room_create','Message_RoomController@store')->name('message_room_create');
     Route::get('/message_room','Message_RoomController@index')->name('message_room');
     Route::post('/message_create','MessageController@store')->name('message_create');
     Route::get('/message_room_list','Message_Room_ListController@index')->name('message_room_list');
+
+
 });
     Auth::routes();
     Route::get('/logout', 'Auth\LogoutController@logout')->name('client.logout');
