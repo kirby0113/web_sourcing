@@ -7,6 +7,7 @@
             padding:40px;
             background: linear-gradient(-135deg,#f0fff0,#fffff0, #f0fff0);
             border-bottom:solid 3px #7fffd4;
+            box-shadow: 2px 2px 4px -2px gray inset;
         }
         a.navbar-brand{
             font-size:250%;
