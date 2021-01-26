@@ -11,6 +11,6 @@ class LogoutController extends Controller
     //
     public function logout(Request $request){
         Auth::guard('client')->logout();
-        return redirect()->route('client.login');
+        return redirect('/enter');
     }
 }
