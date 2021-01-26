@@ -27,6 +27,8 @@ class ChangeWorksTable extends Migration
             $table->bigInteger('Category_id')->unsigned()->change();
             $table->foreign('Category_id')
             ->references('Category_id')->on('categories');
+
+            $table->boolean('finished')->default(false);
         });
     }
 
@@ -39,6 +41,7 @@ class ChangeWorksTable extends Migration
     {
         Schema::table('works', function (Blueprint $table) {
             //
+          //  $table->dropColumn('finished');
         });
     }
 }
