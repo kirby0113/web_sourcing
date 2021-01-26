@@ -1,4 +1,4 @@
-extends('layouts.header')
+@extends('layouts.header')
 
 @section('head')
 <!DOCTYPE html>
@@ -28,10 +28,10 @@ extends('layouts.header')
             border:solid 4px #000000;
             border-radius: 6px;
             display:inline-block;
-            font-size:200%;
+            font-size:300%;
             font-weight:bold;
             margin-top:100px;
-            margin-left:500px;
+            margin-left:200px;
             margin-bottom:100px;
             padding:10px;
             background-color: #FFFFFF;
@@ -42,20 +42,42 @@ extends('layouts.header')
         }
 
         div.message_frame{
-            padding:20px;
+            padding:15px;
             margin-top:40px;
             margin-bottom:40px;
-            border:solid 4px;
+            border:solid 6px #bacbbe;
             border-radius:4px;
-            background-color:#FFFFFF;
+            box-shadow: 2px 5px 10px #000;
+        }
+
+        div.content{
+            font-size:250%;
+            margin:10px;
+            margin-bottom:20px;
         }
 
         div.client{
-            border-color:#FF0000;
+            background: linear-gradient(-135deg,#e0ffff,#ffebcd);
         }
 
         div.contractor{
-            border-color: #0000FF;
+            background: linear-gradient(-135deg,#ffc0bd,#ffebcd);
+        }
+
+        div.message_fotter{
+            margin:10px;
+            font-size:120%;
+        }
+        div.requested_date{
+            margin-right:20px;
+        }
+
+        span.title{
+            margin-left:20px;
+        }
+        span.to{
+            margin-left:60px;
+            margin-right:30px;
         }
 
     </style>
@@ -77,7 +99,7 @@ extends('layouts.header')
    @section('main')
 <body>
 
-    <div class="room_title"><span>{{$room->work->Title}}</span></div>
+    <div class="room_title"><span class="title">依頼名：{{$room->work->Title}}</span><span class="to">送信相手：{{$room->work->contractor->Nickname}}</span></div>
 
     <form class="message_form" action="/client/message_create?room_id={{$room->Room_id}}" method="post">
     @csrf
@@ -92,36 +114,37 @@ extends('layouts.header')
 
     @foreach($messages as $message)
     <div class="row">
-        <div class="col-sm-3"></div>
+        <div class="col-sm-2"></div>
 
         @if($message->made == 'client')
-        <div class="message_frame client col-sm-5 ">
+        <div class="message_frame client col-sm-8 ">
             <div class="content">
                 {!! $message->Message !!}
             </div>
 
             <div class="message_fotter">
-                <a href="/client/contractor_show?id={{$message->client->Client_id}}" class="client_name">送信者：{{$message->client->Nickname}}</a>
+                <a href="/client/contractor_show?id={{$message->client->Client_id}}" class="client_name name">送信者：{{$message->client->NickName}}</a>
                 <span class="requested_date">送信日時：{{$message->created_at}}</span>
             </div>
 
         </div>
+    </div>
         @else
-        <div class="message_frame contractor col-sm-5 ">
+        <div class="message_frame contractor col-sm-8 ">
             <div class="content">
                 {!! $message->Message !!}
             </div>
 
             <div class="message_fotter">
-                <a href="/client/contractor_show?id={{$message->contractor->Contractor_id}}" class="contractor_name">送信者：{{$message->contractor->Nickname}}</a>
+                <a href="/client/contractor_show?id={{$message->contractor->Contractor_id}}" class="contractor_name name">送信者：{{$message->contractor->Nickname}}</a>
                 <span class="requested_date">送信日時：{{$message->created_at}}</span>
             </div>
 
         </div>
+    </div>
         @endif
 
         @endforeach
-    </div>
 </body>
 @endsection
 </html>

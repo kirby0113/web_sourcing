@@ -1,3 +1,6 @@
+@extends('layouts.header')
+
+@section('head')
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -15,26 +18,12 @@
             padding:0px;
         }
 
-        body{
-            background:
-            radial-gradient(black 3px, transparent 4px),
-            radial-gradient(black 3px, transparent 4px),
-            linear-gradient(#fff 4px, transparent 0),
-            linear-gradient(45deg, transparent 74px, transparent 75px, #a4a4a4 75px, #a4a4a4 76px, transparent 77px, transparent 109px),
-            linear-gradient(-45deg, transparent 75px, transparent 76px, #a4a4a4 76px, #a4a4a4 77px, transparent 78px, transparent 109px),
-            #fff;
-            background-size: 109px 109px, 109px 109px,100% 6px, 109px 109px, 109px 109px;
-            background-position: 54px 55px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
-        }
+
         a.back{
             font-size:300%;
             font-weight:bold;
             margin-left:60px;
         }
-        header{
-            padding-top:40px;
-        }
-
         div.room_frame{
             padding:20px;
             margin-top:40px;
@@ -69,11 +58,23 @@
         }
 
 </style>
+@endsection
+    @section('mypage')
+    <a class="nav-link" href="/client/mypage"><span class="headanc">マイページ</span></a>
+    @endsection
 
+    @section('logout')
+    <a class="nav-link" href="/client/logout"><span class="headanc">ログアウト</span></a>
+    @endsection
+
+    @section('DM')
+    <a class="nav-link" href="/client/message_room_list"><span class="headanc">D M</span></a>
+    @endsection
+
+
+@section('main')
 <body>
-    <header>
-        <a href="/client/toppage" class="back">戻る</a>
-    </header>
+
 
     @foreach($rooms as $room)
         <div class="row">
@@ -95,4 +96,5 @@
     @endforeach
 
 </body>
+@endsection
 </html>

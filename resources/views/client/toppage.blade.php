@@ -106,6 +106,8 @@
                 left:30px;
                 font-size: 120%;
                 font-weight:bold;
+                border: solid 3px #A4C6FF;
+                border-radius:8px;
             }
 
             div.category{
