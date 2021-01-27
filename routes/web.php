@@ -22,6 +22,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/mypage','mypageController@index');
 Route::get('/work_detail','work_detailController@index');
 Route::get('/enter','EnterController@index');
+Route::get('/toppage',function(){
+   return redirect('/enter');
+});
 
 Route::prefix('contractor')->namespace('Contractor')
         ->name('contractor.')->group(function(){
@@ -52,6 +55,7 @@ Route::prefix('client')->namespace('Client')
     Route::get('/message_room','Message_RoomController@index')->name('message_room');
     Route::post('/message_create','MessageController@store')->name('message_create');
     Route::get('/message_room_list','Message_Room_ListController@index')->name('message_room_list');
+    Route::get('/finished_message_room','Message_RoomController@finish')->name('message_room_finish');
 
 
 });
