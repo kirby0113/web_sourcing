@@ -15,7 +15,8 @@ class Contractor extends Authenticatable
     //protected $fillable = [
    //     'Name','Nickname','Birthday','email','photo_url','category_id','Appealpoint','password',
     //];
-      protected $fillable = ['contractors'];
+      protected $fillable = [
+            'Name','Nickname','Birthday','email','photo_url','category_id','Appealpoint','password'];
 
     protected $hidden = [
         'password','remember_token',
