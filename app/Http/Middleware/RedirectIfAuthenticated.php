@@ -20,7 +20,7 @@ class RedirectIfAuthenticated
         if (Auth::guard($guard)->check()) {
             if($guard == 'client') return redirect('/client/toppage');
             if($guard == 'contractor') return redirect('/contractor/toppage');
-            return redirect('/home');
+            return redirect('/enter');
         }
 
         return $next($request);
