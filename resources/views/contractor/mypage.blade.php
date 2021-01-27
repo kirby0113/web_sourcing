@@ -1,3 +1,6 @@
+@extends('layouts.header')
+
+@section('head')
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -19,27 +22,9 @@
             padding:0px;
         }
 
-        body{
-            background:
-            radial-gradient(black 3px, transparent 4px),
-            radial-gradient(black 3px, transparent 4px),
-            linear-gradient(#fff 4px, transparent 0),
-            linear-gradient(45deg, transparent 74px, transparent 75px, #a4a4a4 75px, #a4a4a4 76px, transparent 77px, transparent 109px),
-            linear-gradient(-45deg, transparent 75px, transparent 76px, #a4a4a4 76px, #a4a4a4 77px, transparent 78px, transparent 109px),
-            #fff;
-            background-size: 109px 109px, 109px 109px,100% 6px, 109px 109px, 109px 109px;
-            background-position: 54px 55px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
-        }
-
-        a.toppage{
-            float:left;
-            font-size:200%;
-            font-weight:bold;
-            padding:20px;
-        }
         div.profile{
             clear:left;
-            padding:20px 0 0 40px;
+            padding:70px 0 0 40px;
         }
         div.photo_frame{
             border: solid 3px #A4C6FF;
@@ -96,12 +81,15 @@
         }
         div.text{
             position:absolute;
-            top:-20px;
+            top:-40px;
             left:15px;
             background:#FFFFFF;
             font-weight:bold;
             font-size:150%;
             margin: 5px;
+            border: solid 3px #A4C6FF;
+            border-radius: 8px;
+            padding:10px;
         }
         img{
             max-width:300px;
@@ -118,35 +106,83 @@
             font-weight:bold;
             font-size:200%;
         }
+        div.content{
+            padding:20px;
+            font-size:140%;
+            padding-top:20px;
+        }
+        img.content{
+            padding:20px;
+        }
+        button.remake_profile{
+            margin:30px;
+            margin-top:60px;
+            font-weight:bold;
+            font-size:200%;
+            width:400px;
+            border-radius:5px;
+            padding:10px;
+            background: linear-gradient(-135deg,#f0fa9a,#7cfc00);
+            box-shadow:2px 2px 7px #000;
+        }
+        button.remake_password{
+            margin:30px;
+            margin-top:60px;
+            font-weight:bold;
+            font-size:200%;
+            width:400px;
+            padding:10px;
+            background: linear-gradient(-135deg,#ffb6c1,#ff69b4);
+            box-shadow:2px 2px 7px #000;
+        }
         </style>
     </head>
+    @endsection
+
+    @section('mypage')
+   <a class="nav-link" href="/contractor/mypage"><span class="headanc">マイページ</span></a>
+   @endsection
+
+   @section('logout')
+   <a class="nav-link" href="/contractor/logout"><span class="headanc">ログアウト</span></a>
+   @endsection
+
+   @section('DM')
+   <a class="nav-link" href="/contractor/message_room_list"><span class="headanc">D M</span></a>
+   @endsection
+
+   @section('main')
     <body>
-        <a class="toppage" href="/contractor/toppage">←トップページ</a>
         <div class="profile">
             <div class="row">
                 <div class="photo_frame col-sm-5">
+
                     <div class="text">プロフィール写真</div>
-                    <img src="./storage/testdata01.png" class="photo">
+                    @if($contractor_data->photo_url == null)
+                    <img src="../storage/facephoto_data/testdata01.png" class="photo content">
+                    @else
+                    <img src="../{{$contractor_data->photo_url}}" class="photo content">
+                    @endif
                 </div>
                 <div class="text_data col-sm-5">
                     <div class="name_frame">
                         <div class="text">ニックネーム</div>
-                        <div class="name">{{$contractor_data->Nickname}}</div>
+                        <div class="name content">{{$contractor_data->Nickname}}</div>
                     </div>
                     <div class="birthday_frame">
                         <div class="text">誕生日</div>
-                        <div class="birthday">{{$contractor_data->Birthday}}</div>
+                        <div class="birthday content">{{$contractor_data->Birthday}}</div>
                     </div>
                     <div class="mail_frame">
                         <div class="text">メールアドレス</div>
-                        <div class="mail">{{$contractor_data->email}}</div>
+                        <div class="mail content">{{$contractor_data->email}}</div>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="appeal_frame col-sm-8">
                     <div class="text">アピールポイント</div>
-                    <div class="appeal">
+                    <div class="appeal content">
                     @foreach($Appeals as $appeal)
                     {{$appeal}} <br>
                     @endforeach
@@ -155,7 +191,8 @@
             </div>
         </div>
 
-        <div class="remake_profile">プロフィール再設定</div>
-        <div class="remake_password">パスワード再設定</div>
+        <button class="/contractor/remake_profile">プロフィール再設定</button>
+        <button class="/contractor/remake_password">パスワード再設定</button>
     </body>
+    @endsection
 </html>

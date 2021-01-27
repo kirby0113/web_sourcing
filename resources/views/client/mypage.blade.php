@@ -27,7 +27,7 @@
         }
         div.profile{
             clear:left;
-            padding:20px 0 0 40px;
+            padding:70px 0 0 40px;
             margin:50px;
         }
         div.photo_frame{
@@ -83,39 +83,46 @@
         }
         div.text{
             position:absolute;
-            top:-20px;
+            top:-30px;
             left:15px;
             background:#FFFFFF;
             font-weight:bold;
             font-size:130%;
             margin: 5px;
-            padding:5px;
+            padding:10px;
             border: solid 3px #A4C6FF;
             border-radius: 8px;
         }
         img{
             max-width:300px;
             max-height:300px;
+            padding:20px;
             
         }
-        div.remake_password{
+        button.remake_profile{
             margin:30px;
             font-weight:bold;
             font-size:200%;
+            width:400px;
+            border-radius:5px;
+            padding:10px;
+            background: linear-gradient(-135deg,#f0fa9a,#7cfc00);
+            box-shadow:2px 2px 7px #000;
         }
-        div.remake_profile{
+        button.remake_password{
             margin:30px;
             font-weight:bold;
             font-size:200%;
+            width:400px;
+            padding:10px;
+            background: linear-gradient(-135deg,#ffb6c1,#ff69b4);
+            box-shadow:2px 2px 7px #000;
         }
 
-        div.frame{
-            padding-top:50px;
-            padding-bottom:50px;
-        }
 
         div.data{
             font-size:140%;
+            padding:20px;
         }
         </style>
     </head>
@@ -140,7 +147,7 @@
                 <div class="photo_frame col-sm-6">
                     <div class="text">プロフィール写真</div>
                     @if($my_data->photo_url == NULL)
-                    <img src="../storage/testdata01.png" class="photo">
+                    <img src="../storage/facephoto_data/testdata01.png" class="photo">
                     @else
                     <img src="../storage/{{$my_data->photo_url}}" class="photo">
                     @endif
@@ -162,8 +169,8 @@
             </div>
         </div>
 
-        <div class="remake_profile">プロフィール再設定</div>
-        <div class="remake_password">パスワード再設定</div>
+        <button class="remake_profile">プロフィール再設定</button>
+        <button class="remake_password">パスワード再設定</button>
     </body>
     @endsection
 </html>
