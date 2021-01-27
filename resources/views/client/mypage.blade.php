@@ -169,8 +169,8 @@
             </div>
         </div>
 
-        <button class="remake_profile">プロフィール再設定</button>
-        <button class="remake_password">パスワード再設定</button>
+        <button class="/client/remake_profile">プロフィール再設定</button>
+        <button class="/client/remake_password">パスワード再設定</button>
     </body>
     @endsection
 </html>
