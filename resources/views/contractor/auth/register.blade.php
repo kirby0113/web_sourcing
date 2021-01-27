@@ -17,7 +17,7 @@ unset($link);
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('contractor.register') }}">
+                    <form method="POST" action="{{ route('contractor.register') }}" enctype="multipart/form-data"  >
                         @csrf
 
                         <div class="form-group row">
