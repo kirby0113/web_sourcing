@@ -30,4 +30,11 @@ class Message_RoomController extends Controller
        // var_dump($title);
         return view('client.message_room',compact('messages','my_id','room'));
     }
+
+    public function finish(Request $request){
+        $room = Message_Room::find($request->room_id);
+        $room->finished = true;
+        $room->save();
+        return redirect('/client/toppage');
+    }
 }
