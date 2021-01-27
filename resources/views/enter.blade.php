@@ -67,13 +67,22 @@
         button:hover{
             opacity: 0.6;
         }
+
+        div.logo{
+            margin:40px;
+            font-size:250%;
+            font-weight:bold;
+            color:#665566;
+        }
+
+
         </style>
     </head>
     @endsection
     <body>
 
         @section('main')
-        <h1>WebSourcing(仮)へようこそ</h1>
+        <div class="logo">WebSourcing(仮)へようこそ</div>
         <div class="row">
             <div class="col-sm-1"></div>
             <div class="col-sm-4 contractor_frame">
