@@ -24,7 +24,7 @@
         }
 
 
-        div.room_title{
+        span.room_title{
             border:solid 4px #000000;
             border-radius: 6px;
             display:inline-block;
@@ -80,27 +80,74 @@
             margin-right:30px;
         }
 
+        button.finish-button{
+            padding:20px;
+            font-size:180%;
+            font-weight:bold;
+            border-radius:5px;
+            border:solid 3px #ead9ff;
+            box-shadow:2px 2px 7px #000;
+            background: linear-gradient(-135deg,#ffd5ec,#ffabce);
+
+        }
+        button.finish-button:hover{
+            background:#FFDDFF;
+            opacity:0.8;
+        }
+        div.finish{
+            margin-top:40px;
+            margin-left:90px;
+        }
+
+        div.finished{
+            display:inline-block;
+            margin-top:40px;
+            margin-left:90px;
+            padding:20px;
+            font-size:200%;
+            font-weight:bold;
+            border:solid 4px #FFFFFF;
+            border-radius:5px;
+            background: linear-gradient(-135deg,#ffd5ec,#ffabce);
+            box-shadow:2px 2px 7px #000;
+        }
+
     </style>
+
+    <script>
+    function check(room_id){
+       var room_close_check = confirm("このメッセージルームを完了してもよろしいですか？（完了した場合、これ以上の返信が不可能となります。）");
+       if(room_close_check){
+            location.href="/client/finished_message_room?room_id=" + room_id;
+       }
+    }
+    </script>
+
 </head>
 @endsection
 
 @section('mypage')
-   <a class="nav-link" href="/contractor/mypage"><span class="headanc">マイページ</span></a>
+   <a class="nav-link" href="/client/mypage"><span class="headanc">マイページ</span></a>
    @endsection
 
    @section('logout')
-   <a class="nav-link" href="/contractor/logout"><span class="headanc">ログアウト</span></a>
+   <a class="nav-link" href="/client/logout"><span class="headanc">ログアウト</span></a>
    @endsection
 
    @section('DM')
-   <a class="nav-link" href="/contractor/message_room_list"><span class="headanc">D M</span></a>
+   <a class="nav-link" href="/client/message_room_list"><span class="headanc">D M</span></a>
    @endsection
 
    @section('main')
 <body>
-
-    <div class="room_title"><span class="title">依頼名：{{$room->work->Title}}</span><span class="to">送信相手：{{$room->work->contractor->Nickname}}</span></div>
-
+    @if($room->finished = false)
+    <div class="finish"><button class="finish-button" onclick="check({{$room->Room_id}})">メッセージルームを終了する</button></div>
+    @else
+    <div class="finished">このメッセージルームは終了済みです。</div><br>
+    @endif
+    <span class="room_title"><span class="title">依頼名：{{$room->work->Title}}</span><span class="to">送信相手：{{$room->work->contractor->Nickname}}</span></span>
+    
+    @if($room->finished = false)
     <form class="message_form" action="/client/message_create?room_id={{$room->Room_id}}" method="post">
     @csrf
             <span class="row message-content">
@@ -111,6 +158,7 @@
                 <input type="submit" class="btn btn-primary submit"></input>
             </span>
     </form>
+    @endif
 
     @foreach($messages as $message)
     <div class="row">

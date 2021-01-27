@@ -80,6 +80,19 @@
             margin-right:30px;
         }
 
+        div.finished{
+            display:inline-block;
+            margin-top:40px;
+            margin-left:90px;
+            padding:20px;
+            font-size:200%;
+            font-weight:bold;
+            border:solid 4px #FFFFFF;
+            border-radius:5px;
+            background: linear-gradient(-135deg,#ffd5ec,#ffabce);
+            box-shadow:2px 2px 7px #000;
+        }
+
     </style>
 </head>
 @endsection
@@ -99,8 +112,14 @@
    @section('main')
 <body>
 
+
+    @if($room->finished == true)
+    <div class="finished">このメッセージルームは終了済みです。</div><br>
+    @endif
+
     <div class="room_title"><span class="title">依頼名：{{$room->work->Title}}</span><span class="to">送信相手：{{$room->work->client->NickName}}</span></div>
 
+    @if($room->finished == false)
     <form class="message_form" action="/contractor/message_create?room_id={{$room->Room_id}}" method="post">
     @csrf
             <span class="row message-content">
@@ -111,6 +130,7 @@
                 <input type="submit" class="btn btn-primary submit"></input>
             </span>
     </form>
+    @endif
 
     @foreach($messages as $message)
     <div class="row">
