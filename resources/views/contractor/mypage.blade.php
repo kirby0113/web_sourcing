@@ -191,8 +191,8 @@
             </div>
         </div>
 
-        <button class="/contractor/remake_profile">プロフィール再設定</button>
-        <button class="/contractor/remake_password">パスワード再設定</button>
+        <button class="remake_profile" onclick="location.href='/contractor/remake_profile'">プロフィール再設定</button>
+        <button  class="remake_password" onclick="location.href='/contractor/remake_password'">パスワード再設定</button>
     </body>
     @endsection
 </html>
