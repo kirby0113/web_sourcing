@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('/enter');
 });
 
 //Route::get('/toppage','toppageController@index');
@@ -39,6 +39,11 @@ Route::prefix('contractor')->namespace('Contractor')
     Route::get('/message_room_list','Message_Room_ListController@index')->name('message_room_list');
     Route::get('/message_room','Message_RoomController@index')->name('message_room');
     Route::post('/message_create','MessageController@store')->name('message_create');
+
+    Route::get('/remake_password','RemakePasswordController@index')->name('remake_password');
+    Route::get('/remake_profile','RemakeProfileController@index')->name('remake_profile');
+    Route::post('/password_validate','RemakePasswordController@validator')->name('password_validate');
+    Route::post('/profile_validate','RemakeProfileController@validator')->name('profile_validate');
             });
     Auth::routes();
     Route::get('/logout','Auth\logoutController@logout')->name('contractor.logout');
@@ -56,6 +61,9 @@ Route::prefix('client')->namespace('Client')
     Route::post('/message_create','MessageController@store')->name('message_create');
     Route::get('/message_room_list','Message_Room_ListController@index')->name('message_room_list');
     Route::get('/finished_message_room','Message_RoomController@finish')->name('message_room_finish');
+
+    Route::get('/remake_password','RemakePasswordController@index')->name('remake_password');
+    Route::get('/remake_profile','RemakeProfileController@index')->name('remake_profile');
 
 
 });
