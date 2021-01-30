@@ -13,9 +13,9 @@ class WorkDetailController extends Controller
     public function index(Request $request){
         $work = Work::find($request->id);
         $contents = Work::ContentsExplode($work->Contents);
-        $contractor = $work->contractor;
+        $client = $work->client;
         $category = $work->category;
         $id = $request->id;
-        return view('contractor.work_detail',compact('work','contractor','category','contents','id'));
+        return view('contractor.work_detail',compact('work','client','category','contents','id'));
     }
 }

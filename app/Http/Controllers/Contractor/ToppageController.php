@@ -16,7 +16,7 @@ class ToppageController extends Controller
     }
 
     public function index(){
-        $works = Work::limit(10)->get();
+        $works = Work::where('finished',false)->orderBy('created_at','desc')->limit(10)->get();
         $categories = Category::All();
         return view('contractor.toppage',compact('works','categories'));
     }

@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class RegisterController extends Controller
 {
@@ -53,6 +55,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:clients'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'photo_url' => ['file','image','mimes:png,jpeg'],
         ]);
     }
 
@@ -64,14 +67,31 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        if(isset($data['photo_url'])){
+
+        $date = date(DATE_ATOM, mktime(0, 0, 0, 7, 1, 2000));
+        $date_hash = hash( "sha256", $date);
+        $name = $data['photo_url']->getClientOriginalName();
+        Storage::putFileAs('public/facephoto_data/',$data['photo_url'],$date_hash.$name);
+        }
+        if(isset($data['photo_url'])){
         return Client::create([
             'Name' => $data['name'],
             'NickName' => $data['NickName'],
-            'Birthday' => strftime("%F",strtotime($data['year']."-".$data['month']."-".$data['day'])),
-            'photo_url' => $data['photo_url'],
+            'Birthday' => $data['Birthday'],
+            'photo_url' => 'storage/facephoto_data/'.$date_hash.$name,
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+        }else{
+            return Client::create([
+                'Name' => $data['name'],
+                'NickName' => $data['NickName'],
+                'Birthday' => $data['Birthday'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['password']),
+            ]);
+        }
     }
 
     public function showRegistrationForm(){

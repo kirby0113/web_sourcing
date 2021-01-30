@@ -17,7 +17,7 @@ class MessageController extends Controller
        // var_dump($room);
 
         $insert->room_id = $request->room_id;
-        $insert->contractor_id = $room->work->Contractor_id;
+        $insert->contractor_id = $room->contractor_id;
         $insert->client_id = $room->work->Client_id;
         $insert->Message = $request->message;
         $insert->made = 'client';

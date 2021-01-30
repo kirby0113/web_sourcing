@@ -18,6 +18,7 @@ class MypageController extends Controller
     public function show(Request $request){
         $contractor_data = Contractor::find($request->id);
         $Appeals = Contractor::AppealpointExplode($contractor_data->Appealpoint);
-        return view('contractor.mypage',compact('contractor_data','Appeals'));
+        $check = "client";
+        return view('contractor.mypage',compact('contractor_data','Appeals','check'));
     }
 }
