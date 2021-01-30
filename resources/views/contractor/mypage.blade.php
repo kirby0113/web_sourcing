@@ -35,6 +35,7 @@
             max-height: 360px;
             padding:20px;
             background-color:#E6FFE9;
+            box-shadow:2px 2px 7px #000;
         }
         div.text_data{
 
@@ -46,24 +47,27 @@
             margin-left:40px;
             padding:20px;
             background-color:#FFFFFF;
+            box-shadow:2px 2px 7px #000;
         }
         div.birthday_frame{
             position:relative;
             border: solid 3px #A4C6FF;
             border-radius: 8px;
             margin-left:40px;
-            margin-top:40px;
+            margin-top:70px;
             padding: 20px;
             background-color:#FFFFFF;
+            box-shadow:2px 2px 7px #000;
         }
         div.mail_frame{
             position:relative;
             border: solid 3px #A4C6FF;
             border-radius: 8px;
             margin-left:40px;
-            margin-top:40px;
+            margin-top:70px;
             padding: 20px;
             background-color:#FFFFFF;
+            box-shadow:2px 2px 7px #000;
         }
         div.appeal_frame{
             float:left;
@@ -74,6 +78,7 @@
             padding-top:10px;
             padding-bottom:10px;
             background-color:#FFFFFF;
+            box-shadow:2px 2px 7px #000;
         }
         div.appeal{
             margin-top: 20px;
@@ -81,7 +86,7 @@
         }
         div.text{
             position:absolute;
-            top:-40px;
+            top:-60px;
             left:15px;
             background:#FFFFFF;
             font-weight:bold;
@@ -90,6 +95,8 @@
             border: solid 3px #A4C6FF;
             border-radius: 8px;
             padding:10px;
+            box-shadow:2px 2px 7px #000;
+            z-index:-999;
         }
         img{
             max-width:300px;
@@ -139,6 +146,8 @@
     </head>
     @endsection
 
+    @if(!isset($check))
+
     @section('mypage')
    <a class="nav-link" href="/contractor/mypage"><span class="headanc">マイページ</span></a>
    @endsection
@@ -150,6 +159,22 @@
    @section('DM')
    <a class="nav-link" href="/contractor/message_room_list"><span class="headanc">D M</span></a>
    @endsection
+
+   @else
+
+   @section('mypage')
+   <a class="nav-link" href="/client/mypage"><span class="headanc">マイページ</span></a>
+   @endsection
+
+   @section('logout')
+   <a class="nav-link" href="/client/logout"><span class="headanc">ログアウト</span></a>
+   @endsection
+
+   @section('DM')
+   <a class="nav-link" href="/client/message_room_list"><span class="headanc">D M</span></a>
+   @endsection
+
+   @endif
 
    @section('main')
     <body>
@@ -191,8 +216,12 @@
             </div>
         </div>
 
+        @if(!isset($check))
+
         <button class="remake_profile" onclick="location.href='/contractor/remake_profile'">プロフィール再設定</button>
         <button  class="remake_password" onclick="location.href='/contractor/remake_password'">パスワード再設定</button>
+
+        @endisset
     </body>
     @endsection
 </html>

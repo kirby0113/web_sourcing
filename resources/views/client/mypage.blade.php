@@ -39,6 +39,7 @@
             max-height: 360px;
             padding:20px;
             background-color:#ffe4c4;
+            box-shadow:2px 2px 7px #000;
         }
 
         div.name_frame{
@@ -48,34 +49,38 @@
             margin-left:40px;
             padding:20px;
             background-color:#FFFFFF;
+            box-shadow:2px 2px 7px #000;
         }
         div.birthday_frame{
             position:relative;
             border: solid 3px #A4C6FF;
             border-radius: 8px;
             margin-left:40px;
-            margin-top:40px;
+            margin-top:90px;
             padding: 20px;
             background-color:#FFFFFF;
+            box-shadow:2px 2px 7px #000;
         }
         div.mail_frame{
             position:relative;
             border: solid 3px #A4C6FF;
             border-radius: 8px;
             margin-left:40px;
-            margin-top:40px;
+            margin-top:90px;
             padding: 20px;
             background-color:#FFFFFF;
+            box-shadow:2px 2px 7px #000;
         }
         div.appeal_frame{
             float:left;
             position:relative;
             border: solid 3px #A4C6FF;
             border-radius: 8px;
-            margin-top:40px;
+            margin-top:90px;
             padding-top:10px;
             padding-bottom:10px;
             background-color:#FFFFFF;
+            box-shadow:2px 2px 7px #000;
         }
         div.appeal{
             margin-top: 20px;
@@ -83,15 +88,17 @@
         }
         div.text{
             position:absolute;
-            top:-30px;
+            top:-60px;
             left:15px;
             background:#FFFFFF;
             font-weight:bold;
-            font-size:130%;
+            font-size:150%;
             margin: 5px;
             padding:10px;
             border: solid 3px #A4C6FF;
             border-radius: 8px;
+            box-shadow:2px 2px 7px #000;
+            z-index:-999;
         }
         img{
             max-width:300px;
@@ -124,20 +131,43 @@
             font-size:140%;
             padding:20px;
         }
+
+        button.remake_profile{
+            margin:30px;
+            margin-top:60px;
+            font-weight:bold;
+            font-size:200%;
+            width:400px;
+            border-radius:5px;
+            padding:10px;
+            background: linear-gradient(-135deg,#f0fa9a,#7cfc00);
+            box-shadow:2px 2px 7px #000;
+        }
+        button.remake_password{
+            margin:30px;
+            margin-top:60px;
+            font-weight:bold;
+            font-size:200%;
+            width:400px;
+            padding:10px;
+            background: linear-gradient(-135deg,#ffb6c1,#ff69b4);
+            box-shadow:2px 2px 7px #000;
+        }
+
         </style>
     </head>
     @endsection
 
     @section('mypage')
-    <a class="nav-link" href="/contractor/mypage"><span class="headanc">マイページ</span></a>
+    <a class="nav-link" href="/client/mypage"><span class="headanc">マイページ</span></a>
     @endsection
 
     @section('logout')
-    <a class="nav-link" href="/contractor/logout"><span class="headanc">ログアウト</span></a>
+    <a class="nav-link" href="/client/logout"><span class="headanc">ログアウト</span></a>
     @endsection
 
     @section('DM')
-    <a class="nav-link" href="/contractor/message_room_list"><span class="headanc">D M</span></a>
+    <a class="nav-link" href="/client/message_room_list"><span class="headanc">D M</span></a>
     @endsection
 
     @section('main')
@@ -149,7 +179,7 @@
                     @if($my_data->photo_url == NULL)
                     <img src="../storage/facephoto_data/testdata01.png" class="photo">
                     @else
-                    <img src="../storage/{{$my_data->photo_url}}" class="photo">
+                    <img src="../{{$my_data->photo_url}}" class="photo">
                     @endif
                 </div>
                 <div class="text_data col-sm-5">
@@ -169,8 +199,8 @@
             </div>
         </div>
 
-        <button class="/client/remake_profile">プロフィール再設定</button>
-        <button class="/client/remake_password">パスワード再設定</button>
+        <button class="remake_profile" onclick="location.href='/client/remake_profile'">プロフィール再設定</button>
+        <button class="remake_password" onclick="location.href='/client/remake_password'">パスワード再設定</button>
     </body>
     @endsection
 </html>

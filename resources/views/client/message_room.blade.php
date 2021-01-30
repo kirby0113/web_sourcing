@@ -140,14 +140,14 @@
 
    @section('main')
 <body>
-    @if($room->finished = false)
+    @if($room->finished == false)
     <div class="finish"><button class="finish-button" onclick="check({{$room->Room_id}})">メッセージルームを終了する</button></div>
     @else
     <div class="finished">このメッセージルームは終了済みです。</div><br>
     @endif
-    <span class="room_title"><span class="title">依頼名：{{$room->work->Title}}</span><span class="to">送信相手：{{$room->work->contractor->Nickname}}</span></span>
+    <span class="room_title"><span class="title">依頼名：{{$room->work->Title}}</span><span class="to">送信相手：{{$room->contractor->Nickname}}</span></span>
     
-    @if($room->finished = false)
+    @if($room->finished == false)
     <form class="message_form" action="/client/message_create?room_id={{$room->Room_id}}" method="post">
     @csrf
             <span class="row message-content">

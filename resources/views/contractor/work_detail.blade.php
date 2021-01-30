@@ -39,6 +39,7 @@
                 border: solid 3px #A4C6FF;
                 border-radius:8px;
                 background: #FFFFFF;
+                box-shadow:2px 2px 7px #000;
         }
         div.content{
             font-size:150%;
@@ -54,6 +55,17 @@
         }
         div.fotter{
             margin-top:5px;
+        }
+
+        button.btn{
+            font-size:140%;
+            padding:10px;
+            width:50%;
+            border-radius:4px;
+            font-weight:bold;
+            box-shadow:2px 2px 7px #000;
+            margin-top:30px;
+            margin-bottom:30px;
         }
         </style>
     </head>
@@ -77,9 +89,8 @@
         <div class="col-sm-3"></div>
         <div class="work_frame col-sm-6">
             <div class="row">
-                <div class="title col-sm-4">依頼名：{{$work->Title}}</div>
-                <div class="col-sm-5"></div>
-                <div class="client_name col-sm-3">依頼者：{{$contractor->Nickname}}</div>
+                <div class="title col-sm-9">依頼名：{{$work->Title}}</div>
+                <div class="client_name col-sm-3">依頼者：{{$client->NickName}}</div>
             </div>
         <div class="content_frame">
             <div class="contents">@foreach($contents as $content)
@@ -93,7 +104,7 @@
             <div class="updated-at col-sm-3">最終更新日:{{$work->updated_at}}</div>
         </div>
         <div class="text-center">
-        <a href="/contractor/request?id={{$id}}" class="application"><button type="button" class="btn btn-primary">申し込みする</button></a>
+        <a href="/contractor/request?id={{$id}}" class="application"><button type="button" class="btn btn-primary">提案をする</button></a>
     </div>
         </div>
     </body>

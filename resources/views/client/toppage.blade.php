@@ -69,7 +69,7 @@
             }   
             div.category-work{
                 clear:right;
-                margin: 10px;
+                margin-top: 100px;
                 padding: 30px 0px;
             }  
             
@@ -97,17 +97,20 @@
                 border: solid 3px #A4C6FF;
                 border-radius:8px;
                 background: #FFFFFF;
+                box-shadow:2px 2px 7px #000;
             }
             div.work-title{
                 position:absolute;
                 background-color: #FFFFFF;
-                padding:0px 6px;
-                top:-15px;
+                padding:10px;
+                top:-60px;
                 left:30px;
-                font-size: 120%;
+                font-size: 150%;
                 font-weight:bold;
                 border: solid 3px #A4C6FF;
                 border-radius:8px;
+                box-shadow:2px 2px 7px #000;
+                z-index:-999;
             }
 
             div.category{
@@ -116,16 +119,87 @@
                 
             }
             div.work{
-                padding: 10px;
                 padding-top:20px;
                 padding-bottom:20px;
-                font-size: 200%;
+                padding-left:20px;
+                font-size: 250%;
+                font-weight:bold;
+            }
+            div.work_frame{
                 border-bottom:dotted 2px #0000FF;
+                padding:30px;
+                position:relative;
+            }
+            div.not_finish{
+                background: linear-gradient(-135deg,#00ff7f,#7fffd4);
+                border:solid 3px #000000;
+                box-shadow: 4px 4px 7px #666666;
+                padding:20px;
+            }
+            div.finished{
+                background: linear-gradient(-135deg,#00ff7f,#7fffd4);
+                border:solid 3px #000000;
+                box-shadow: 4px 4px 7px #666666;
+                padding:20px;
             }
             span.headanc{
                 padding:-40px;
             }
+
+            button.new-work{
+                font-size:250%;
+                font-weight:bold;
+                padding:30px;
+                width:600px;
+                text-align:center;
+                margin-top:100px;
+                margin-left:650px;
+                border-radius:6px;
+                background: linear-gradient(-135deg,#00ff7f,#7fffd4);
+                border:solid 3px #000000;
+                box-shadow: 4px 4px 4px #666666;
+            }
+
+            span.created_at{
+                font-size:150%;
+                margin-left:20px;
+            }
+
+            span.category{
+                font-size:150%;
+                margin-left:20px;
+            }
+            span.finish_text{
+                font-size:150%;
+                margin-left:20px;
+                color:#ff0000;
+            }
+
+            button.finish_button{
+                font-size:200%;
+                font-weight:bold;
+                padding:30px;
+                border-radius:6px;
+                background: linear-gradient(-135deg,#ffc0cb,#ffb6c1);
+                border:solid 3px #000000;
+                box-shadow: 4px 4px 4px #666666;
+            }
+            span.button{
+                position:absolute;
+                top:80px;
+                left:800px;
+                display:inline-block;
+            }
         </style>
+
+            <script>
+    function check(work_id){
+       var room_close_check = confirm("この依頼を完了してもよろしいですか？（完了した場合、これ以上の提案の募集などが不可能となります。）");
+       if(room_close_check){
+            location.href="/client/work_finish?work_id=" + work_id;
+       }
+    }
+    </script>
     </head>
     @endsection
     @section('mypage')
@@ -143,6 +217,8 @@
     @section('main')
     <body>
        <div class="pagebody container-fluid">
+
+       <button class="new-work" onclick="location.href='/client/create_work'">新しく依頼を作成する</button>
             
 
             <div class="category-work row">
@@ -152,7 +228,24 @@
                 <div class="works col-sm-7">
                     <div class="work-title">今まで依頼したもの</div>
                     @foreach($myworks as $work)
-                    <a href="/client/request_detail?id={{$work->Work_id}}"><div class="work">{{$work->Title}}</div></a>
+                    <div class="work_frame">
+                    @if($work->finished == false)
+                    <div class="not_finish">
+                    <a href="/client/request_detail?id={{$work->Work_id}}"><div class="work">・{{$work->Title}}</div></a>
+                    <span class="category">カテゴリ：{{$work->category->Category_name}}</span><br>
+                    <span class="created_at">作成日時：{{$work->created_at}}</span><br>
+
+                    <span class="button"><button class="finish_button btn" onclick="check({{$work->Work_id}})">依頼を終了する</button></span>
+                    </div>
+                    @else
+                    <div class="finished">
+                    <div class="work">・{{$work->Title}}</div>
+                    <span class="category">カテゴリ：{{$work->category->Category_name}}</span><br>
+                    <span class="created_at">作成日時：{{$work->created_at}}</span><br>
+                    <span class="finish_text">この依頼は終了済みです。</span><br>
+                    </div>
+                    @endif
+                    </div>
                     @endforeach
                 </div>
             </div>

@@ -93,6 +93,11 @@
             box-shadow:2px 2px 7px #000;
         }
 
+        input.btn{
+            font-size:200%;
+            font-weight:bold;
+        }
+
     </style>
 </head>
 @endsection
@@ -143,7 +148,7 @@
             </div>
 
             <div class="message_fotter">
-                <a href="/client/contractor_show?id={{$message->client->Client_id}}" class="client_name name">送信者：{{$message->client->Nickname}}</a>
+                <a href="/client/contractor_show?id={{$message->client->Client_id}}" class="client_name name">送信者：{{$message->client->NickName}}</a>
                 <span class="requested_date">送信日時：{{$message->created_at}}</span>
             </div>
 

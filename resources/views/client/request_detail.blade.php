@@ -1,3 +1,6 @@
+@extends('layouts.header')
+
+@section('head')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,17 +17,7 @@
             margin: 0px;
             padding: 0px;
         }
-        body{
-            background:
-            radial-gradient(black 3px, transparent 4px),
-            radial-gradient(black 3px, transparent 4px),
-            linear-gradient(#fff 4px, transparent 0),
-            linear-gradient(45deg, transparent 74px, transparent 75px, #a4a4a4 75px, #a4a4a4 76px, transparent 77px, transparent 109px),
-            linear-gradient(-45deg, transparent 75px, transparent 76px, #a4a4a4 76px, #a4a4a4 77px, transparent 78px, transparent 109px),
-            #fff;
-            background-size: 109px 109px, 109px 109px,100% 6px, 109px 109px, 109px 109px;
-            background-position: 54px 55px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
-        }
+
         div.request_frame{
             display:inline-block;
             border:solid 4px #000000;
@@ -74,9 +67,44 @@
             font-weight:bold;
             font-size:120%;
         }
+
+        div.notfound_frame{
+            padding-top:30px;
+            padding-bottom:30px;
+            text-align:center;
+            border:solid 4px #FFFFFF;
+            border-radius:5px;
+            background: linear-gradient(-135deg,#ee82ee,#d8bfd8);
+            box-shadow:2px 2px 7px #000;
+            width:600px;
+            margin-top:200px;
+            margin-left:650px;
+        }
+
+        span.notfound_text{
+            font-weight:bold;
+            font-size:200%;
+        }
 </style>
+
+</head>
+@endsection
+    @section('mypage')
+    <a class="nav-link" href="/client/mypage"><span class="headanc">マイページ</span></a>
+    @endsection
+
+    @section('logout')
+    <a class="nav-link" href="/client/logout"><span class="headanc">ログアウト</span></a>
+    @endsection
+
+    @section('DM')
+    <a class="nav-link" href="/client/message_room_list"><span class="headanc">D M</span></a>
+    @endsection
+
+
+@section('main')
 <body>
-    <a href="javascript:history.back()" class="back">戻る</a>
+        @isset($work_requests)
     @foreach($work_requests as $request)
     <div class="row">
         <div class="col-sm-3"></div>
@@ -90,11 +118,18 @@
                 <a href="/client/contractor_show?id={{$request->contractor->Contractor_id}}" class="contractor_name">提案者：{{$request->contractor->Nickname}}</a>
                 <span class="requested_date">提案日時：{{$request->created_at}}</span>
             </div>
-            <div class="button"><a href="/client/message_room_create?work_id={{$work_id}}"><button class="btn btn-primary"><font size="6">提案を承認する</font></button></a></div>
+            <div class="button"><a href="/client/message_room_create?work_id={{$work_id}}&contractor_id={{$request->contractor->Contractor_id}}&request_id={{$request->Request_id}}"><button class="btn btn-primary"><font size="6">提案を承認する</font></button></a></div>
 
         </div>
     </div>
         @endforeach
+
+        @else
+            <div class="notfound_frame">
+                <span class="notfound_text">現在未承認の提案はありません。</span>
+            </div>
+        @endisset
     </div>
 </body>
+@endsection
 </html>

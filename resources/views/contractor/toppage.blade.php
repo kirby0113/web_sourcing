@@ -33,7 +33,7 @@
 
             form#search-bar{
                float: right;
-               margin: 10px;
+               margin-top: 40px;
                margin-right: 100px;
             }
             div.button{
@@ -42,16 +42,15 @@
                 height:60px;
                 justify-content: space-between;
             }
-            input.mypage-button{
-                font-size:200%;
+            div.form-group{
+                font-size:150%;
+                padding:10px;
+                margin-right:20px;
             }
             button{
                 font-size:200%;
                 padding: 10px;
             }
-            input.DM-button{
-                font-size:200%;
-            }  
             input.bar{
                 padding: 2px;
                 font-size: 200%;
@@ -73,17 +72,20 @@
                 border: solid 3px #A4C6FF;
                 border-radius: 8px;
                 background: #FFFFFF;
+                box-shadow:2px 2px 7px #000;
             }
             div.category-title{
                 position: absolute;
                 background-color: #FFFFFF;
-                padding:0px 6px;
-                top: -15px;
+                padding:10px;
+                top: -60px;
                 left: 30px; 
-                font-size: 120%;
+                font-size: 140%;
                 font-weight:bold;
                 border:solid 3px #A4C6FF;
                 border-radius:8px;
+                box-shadow:2px 2px 7px #000;
+                z-index:-999;
             }
             div.works{
                 position: relative;
@@ -92,17 +94,20 @@
                 border: solid 3px #A4C6FF;
                 border-radius:8px;
                 background: #FFFFFF;
+                box-shadow:2px 2px 7px #000;
             }
             div.work-title{
                 position:absolute;
                 background-color: #FFFFFF;
-                padding:0px 6px;
-                top:-15px;
+                padding:10px;
+                top:-60px;
                 left:30px;
-                font-size: 120%;
+                font-size: 140%;
                 font-weight:bold;
                 border:solid 3px #A4C6FF;
                 border-radius:8px;
+                box-shadow:2px 2px 7px #000;
+                z-index:-999;
             }
 
             div.category{
@@ -126,6 +131,34 @@
                 font-size:130%;
                 font-family: 'Sawarabi Mincho', sans-serif;
                 font-weight:bolder;
+            }
+
+            div.work-footer{
+                padding-top: 20px;
+            }
+
+            span.work-category{
+                margin-left:20px;
+            }
+            span.work-client{
+                margin-left:20px;
+            }
+
+            span.work-created_at{
+                font-size:90%;
+                margin-left:20px;
+            }
+
+            div.f-second{
+                margin-top:10px;
+                margin-bottom:10px;
+                font-size:80%;
+            }
+
+            div.anchor{
+                font-size:150%;
+                margin-top:-10px;
+                font-weight:bold;
             }
 
         </style>
@@ -164,10 +197,10 @@
             <form id="search-bar" action="/contractor/word_search_result" class="row justify-content-center align-middle",method="get">
                 @csrf
                 <div class="form-group">
-                <input type="text" name="word" class="bar">
+                <input type="text" name="word" class="bar form-control">
                 </div>
                 <div class="form-group">
-                <input type="submit"value="検索" class="search">
+                <input type="submit"value="検索" class="search btn btn-secondary">
                 </div>
             </form>
             <div class="category-work row">
@@ -181,7 +214,18 @@
                 <div class="works col-sm-7">
                     <div class="work-title">依頼置き場（仮）</div>
                     @foreach($works as $work)
-                    <div class="work">・<a href="/contractor/work_detail?id={{$work->Work_id}}">{{$work->Title}}</a></div>
+                    <div class="work">
+                        <div class="anchor">・<a href="/contractor/work_detail?id={{$work->Work_id}}">{{$work->Title}}</a></div>
+                        <div class="work-footer">
+                        <div class="f-first">
+                        <span class="work-client">依頼者：{{$work->client->NickName}}</span>
+                        <span class="work-category">カテゴリ：{{$work->category->Category_name}}</span>
+                        </div>
+                        <div class="f-second">
+                        <span class="work-created_at">作成日時：{{$work->created_at}}</span>
+                        </div>
+                        </div>
+                    </div>
                     @endforeach
                 </div>
             </div>

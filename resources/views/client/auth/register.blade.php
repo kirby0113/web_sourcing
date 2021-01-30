@@ -40,41 +40,11 @@
                         </div>
 
                         <div class="form-row form-group">
-                        <label class="col-md-2 form-label" style="margin-top:10px; margin-left:40px;">生年月日</label>
-                            <div class="col-md-3">
-                            <div class="form-row">
-                                <div class="col">
-                                <select id="year" class="form-control" name="year" placeholder="年">
-                                    <option value="">----</option>
-                                    <option>2000</option>                                    
-                                </select>
-                                </div>
-                                <div class="col-auto my-2">年</div>
+                        <label class="col-md-3 form-label text-md-right" style="margin-top:10px; margin-left:40px;">生年月日</label>
+                            <div class="col-md-4" style="margin-left:26px;">
+                            <input type="date" name="Birthday" max="2005-12-31" class="form-control">
                             </div>
-                            </div>
-                            <div class="col-md-3">
-                            <div class="form-row">
-                                <div class="col">
-                                <select id="month" class="form-control" name="month" placeholder="月">
-                                    <option value="">--</option>
-                                    <option>1</option>
 
-                                </select>
-                                </div>
-                                <div class="col-auto my-2">月</div>
-                            </div>
-                            </div>
-                            <div class="col-md-3">
-                            <div class="form-row">
-                                <div class="col">
-                                <select id="day" class="form-control" name="day" placeholder="日">
-                                    <option value="">--</option>
-                                    <option>1</option>
-                                </select>
-                                </div>
-                                <div class="col-auto my-2">日</div>
-                            </div>
-                            </div>
                         </div>
 
                         <div class="form-group row">

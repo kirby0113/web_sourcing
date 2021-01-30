@@ -33,14 +33,22 @@
         div.explain{
             margin-top:40px;
             margin-left:200px;
-            font-size:130%;
+            padding:20px;
+            font-size:150%;
             color: #FF0000;
             background-color: #FFFFFF;
             border:solid 4px #000000;
+            border-radius:4px;
             display: inline-block;
         }
-        textarea.request-content{
-            font-size:150%;
+        textarea.form-control{
+            font-size:200%;
+        }
+
+        input.btn{
+            box-shadow: 4px 4px 2px #666666;
+            width:300px;
+            margin-left:100px;
         }
 
         </style>
@@ -63,14 +71,16 @@
 <body>
 <form action="/contractor/request_create?id={{$id}}" method="post">
 @csrf
+<div class="form-group">
         <div class="explain">こちらのフォームに提案等をお書きください。依頼者に送信します。</div>
         <div class="row request-content">
             <div class="col-sm-3"></div>
-            <textarea class="request-content" cols="75" rows="10" name="content"></textarea>
+            <textarea class="request-content form-control col-sm-5" cols="30" rows="10" name="content"></textarea>
         </div>
         <div class="row submit">
-            <div class="col-sm-5"></div>
-            <input type="submit" class="btn btn-success submit"></input>
+            <div class="col-sm-4"></div>
+            <input type="submit" class="btn btn-success submit" value="提案する"></input>
+        </div>
         </div>
 </form>
 </body>

@@ -23,14 +23,29 @@
             margin-left:60px;
         }
 
-        div.room_frame{
+        div.room_frame_nofinish{
             padding:20px;
             margin-top:40px;
             margin-bottom:40px;
             border:solid 4px;
             border-radius:4px;
-            background-color:#FFFFFF;
-            border-color: #000000;
+            background: linear-gradient(-135deg,#e0ffff,#afeeee);
+            color:#000000;
+            border-color: #b0e0e6;
+            box-shadow:2px 2px 7px #000;
+        }
+
+        
+        div.room_frame_finish{
+            padding:20px;
+            margin-top:40px;
+            margin-bottom:40px;
+            border:solid 4px;
+            border-radius:4px;
+            background: linear-gradient(-135deg,#ffb6c1,#ffe4e1);
+            color:#000000;
+            border-color: #b0e0e6;
+            box-shadow:2px 2px 7px #000;
         }
 
         span.created_date{
@@ -56,6 +71,18 @@
 
         }
 
+        div.finished{
+            margin-top:30px;
+        }
+
+        span.alert{
+            color:#FF0000;
+            font-weight:bold;
+            font-size:160%;
+        }
+
+
+
 </style>
  </head>
  @endsection
@@ -78,19 +105,38 @@
     @foreach($rooms as $room)
         <div class="row">
             <div class="col-sm-3"></div>
+            @if($room->finished == false)
             <a href="/contractor/message_room?room_id={{$room->Room_id}}" class="col-sm-6">
-                <div class="room_frame">
+                <div class="room_frame_nofinish">
 
                     <div class="title">
                         {!! $room->work->Title !!}
                     </div>
 
                     <div class="room_fotter">
-                        <span class="to_name">送信相手：{{$room->work->contractor->Nickname}}</span>
+                        <span class="to_name">送信相手：{{$room->contractor->Nickname}}</span>
                         <span class="created_date">作成日時：{{$room->created_at}}</span>
                     </div>
                 </div>
             </a>
+            @else
+            <a href="/contractor/message_room?room_id={{$room->Room_id}}" class="col-sm-6">
+            <div class="room_frame_finish">
+
+                <div class="title">
+                    {!! $room->work->Title !!}
+                </div>
+
+                <div class="room_fotter">
+                    <span class="to_name">送信相手：{{$room->contractor->Nickname}}</span>
+                    <span class="created_date">作成日時：{{$room->created_at}}</span>
+                </div>
+                <div class="finished">
+                <span class="alert">このメッセージルームは終了済みです。</span>
+                </div>
+            </div>
+            </a>
+            @endif
         </div>
     @endforeach
 
