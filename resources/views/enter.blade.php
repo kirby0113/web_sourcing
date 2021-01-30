@@ -57,7 +57,7 @@
             margin-top:40px;
             margin-bottom:40px;
             width:500px;
-            font-size:170%;
+            font-size:240%;
             font-weight:bold;
             text-shadow:1px 1px 0px #000000;
             border-radius:8px;
