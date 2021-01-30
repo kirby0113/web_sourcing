@@ -61,9 +61,14 @@ Route::prefix('client')->namespace('Client')
     Route::post('/message_create','MessageController@store')->name('message_create');
     Route::get('/message_room_list','Message_Room_ListController@index')->name('message_room_list');
     Route::get('/finished_message_room','Message_RoomController@finish')->name('message_room_finish');
+    Route::get('/create_work','Create_WorkController@index')->name('create_work_form');
+    Route::post('/work_validate','Create_WorkController@validation')->name('work_validate');
+    Route::get('/work_finish','Create_WorkController@finish')->name('work_finish');
 
     Route::get('/remake_password','RemakePasswordController@index')->name('remake_password');
     Route::get('/remake_profile','RemakeProfileController@index')->name('remake_profile');
+    Route::post('/password_validate','RemakePasswordController@validator')->name('password_validate');
+    Route::post('/profile_validate','RemakeProfileController@validator')->name('profile_validate');
 
 
 });
