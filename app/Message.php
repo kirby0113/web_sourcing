@@ -21,4 +21,11 @@ class Message extends Model
     public function Work(){
         return $this->belongsTo(Message_Room::class,'room_id');
     }
+
+    
+    public function getMessageAttribute($value){
+        $value = str_replace(array("\r\n", "\r", "\n"), "\n", $value);
+        return nl2br($value);
+    }
+
 }
