@@ -16,8 +16,8 @@ $factory->define(Work::class, function (Faker $faker) {
     return [
         //
         'Client_id' => $faker->randomElement($clients),
-        'Contractor_id' => $faker->randomElement($contractors),
-        'Category_id' =>  1,//$faker->randomElement($categories),
+        //'Contractor_id' => $faker->randomElement($contractors),
+        'Category_id' =>  $faker->randomElement($categories),
         'Title' => $faker->word,
         'Contents' => $faker->sentence,
         'created_at' => $faker->datetime($max = 'now', $timezone = date_default_timezone_get()),

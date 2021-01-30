@@ -9,6 +9,6 @@ use App\Category;
 $factory->define(Category::class, function (Faker $faker) {
     return [
         //
-        'Category_name' => $faker->word,
+        'Category_name' => $faker->words($nb = 1,$asText = true),
     ];
 });
