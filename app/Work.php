@@ -12,7 +12,7 @@ class Work extends Model
     protected $table = "works";
 
     public static function category_pickup($id){
-        return Work::where('Category_id',$id)->paginate(10);
+        return Work::where('Category_id',$id)->where('finished',false)->orderBy('created_at','desc')->paginate(10);
     }       
     
     public static function word_pickup($words){
@@ -21,12 +21,10 @@ class Work extends Model
             $query->orwhere('Title','like','%'.$word.'%');
             $query->orwhere('Contents','like','%'.$word.'%');
         }
+        $query->where('finished',false)->orderBy('created_at','desc');
         return $query->paginate(10);
     }
 
-    public function contractor(){
-        return $this->belongsTo(Contractor::class,'Contractor_id');
-    }
 
     public function client(){
         return $this->belongsTo(Client::class,'Client_id');
@@ -41,7 +39,7 @@ class Work extends Model
     }
 
     public static function getWork_Client($id){
-        return Work::where('Client_id',$id)->get();
+        return Work::where('Client_id',$id)->orderBy('created_at','desc')->get();
     }
 
     public function category(){

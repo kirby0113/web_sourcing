@@ -15,4 +15,8 @@ class Message_Room extends Model
         return $this->belongsTo(Work::class,'work_id');
     }
 
+    public function contractor(){
+        return $this->belongsTo(Contractor::class,'contractor_id');
+    }
+
 }
